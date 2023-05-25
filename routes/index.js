@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-const db = require("../db");
+// const db = require("../db");
 const process = require("../process");
 const draw  = require('../drawCard');
 const nodeHtmlToImage = require('node-html-to-image')
@@ -41,7 +41,7 @@ router.get('/card/generate/:username/:color?', async (req, res, next) => {
 
     userData = await process.processCard(wpURL, userName, appURL);
 
-    await db.insert('cards', { "userName" : userName, "name" : userData['name'],  "cardURL" : cardURL });
+    // await db.insert('cards', { "userName" : userName, "name" : userData['name'],  "cardURL" : cardURL });
     // await draw.drawCard(userData, mainColor, appURL);
 
     const _fileName = './public/card/'+ userData["userName"] +'.png';
@@ -174,7 +174,7 @@ router.get('/edit/:id', async (req, res, next) => {
   const id = req.params.id;
 
   try {
-    const doc = await db.findOne(id);
+    // const doc = await db.findOne(id);
     res.render('new', { title: 'Update card', doc, action: '/edit/' + doc._id });
   } catch (err) {
     next(err);
@@ -184,7 +184,7 @@ router.get('/delete/:id', async (req, res) => {
   const id = req.params.id;
 
   try {
-    const result = await db.deleteOne(id);
+    // const result = await db.deleteOne(id);
     console.log(result);
     res.redirect('/');
   } catch (err) {
@@ -195,10 +195,10 @@ router.get('/:page?', async (req, res, next) => {
   const page = parseInt(req.params.page || "1");
 
   try {
-    const docs = await db.findAll(page);
-    const count = await db.countAll();
-    const numPages = Math.ceil(count / db.PAGE_SIZE);
-    res.render('index', { title: 'Profiles Card', docs, count, numPages, page });
+    // const docs = await db.findAll(page);
+    // const count = await db.countAll();
+    // const numPages = Math.ceil(count / db.PAGE_SIZE);
+    // res.render('index', { title: 'Profiles Card', docs, count, numPages, page });
   } catch (err) {
     next(err);
   }
@@ -230,7 +230,7 @@ router.post('/edit/:id', async (req, res) => {
   const userName = req.body.userName;
 
   try {
-    const result = await db.update(id, { userName });
+    // const result = await db.update(id, { userName });
     console.log(result);
     res.redirect('/');
   } catch (err) {
