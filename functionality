@@ -1,0 +1,17 @@
+user=rodrigo
+color=#000000 hex color
+
+http://localhost:3000/card/matt
+
+
+X load url data
+X select data and store in memory
+x create the card
+store in data base user, name, image url
+X grant access to the card
+update / create record with date
+reduce fonts
+
+
+Interface to create/update the card.
+where to use this card?
