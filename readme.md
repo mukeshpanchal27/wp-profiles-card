@@ -21,7 +21,7 @@ https://www.cardpress.us/card/?username=rodrigodonini
 If you want to use your card in a markdown file, just copy & paste the code below, by putting your WordPress username into the :username variable.
 
 ```md
-[![Rodrigo's WordPress Activity](https://www.cardpress.us/card/?username=rodrigodonini)](https://www.cardpress.us/)
+[![Rodrigo's WordPress Activity](https://www.cardpress.us/card/?username=rodrigodonini&format=image)](https://www.cardpress.us/)
 ```
 
 **Image Output (BETA)**

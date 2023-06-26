@@ -36,7 +36,6 @@ router.get('/card', async (req, res, next) => {
   let userData      = [];
 
   try {
-
     const wpURL   = 'https://profiles.wordpress.org/' + username;
     const cardURL = appURL + '/card/?username=' + username;
 
@@ -48,9 +47,9 @@ router.get('/card', async (req, res, next) => {
     const name          = userData["name"];
     const membersince   = userData["memberSince"];
     const avatar        = await draw.renderAvatarHTML(userData["avatar"], displayAvatar);
-    const badges        = await draw.renderBadgesHTML(userData["badges"], appURL, displayBadges);
+    const badges        = await draw.renderBadgesSVG(userData["badges"], appURL, displayBadges);
 
-    let htmlResult = await draw.renderCard(fonts, css, username, name, membersince, avatar, badges, link);
+    let htmlResult = await draw.renderCard(username, name, membersince, avatar, badges);
 
     if ('image' === format) {
 
@@ -78,11 +77,12 @@ router.get('/card', async (req, res, next) => {
 
       })
     } else {
+      res.setHeader('Content-Type', "image/svg+xml");
       res.render('card', { card: htmlResult });
     }
 
   } catch (err) {
-    res.render('user-not-found', { title: 'User Not Found', userName: username, appURL: appURL });
+    res.render('user-not-found', { title: 'User Not Found', userName: username, appURL: appURL, error: err });
   }
 });
 
