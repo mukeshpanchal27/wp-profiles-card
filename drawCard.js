@@ -658,7 +658,7 @@ async function renderBadgesSVG(badges, appURL, displayIcons) {
  */
 async function renderAvatarHTML(avatar, displayAvatar) {
     let html = '';
-    html += ('true' === displayAvatar) ? '<image href="'+ avatar.replaceAll('&', '&amp;') +'" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />' : '';
+    html += ('true' === displayAvatar) ? '<image href="'+ avatar.replace(/&/g, '&amp;') +'" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />' : '';
     return html;
 }
 
