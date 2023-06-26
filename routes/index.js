@@ -38,7 +38,7 @@ router.get('/card', async (req, res, next) => {
 
     res.setHeader(
       'Content-Security-Policy',
-      "img-src 'self' data:;"
+      "img-src 'self' https://secure.gravatar.com/;"
     );
     res.setHeader('Content-Type', "image/svg+xml");
     res.render('card', { card: htmlResult });
