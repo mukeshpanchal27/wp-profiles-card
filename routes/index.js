@@ -38,7 +38,7 @@ router.get('/card', async (req, res, next) => {
 
     res.setHeader(
       'Content-Security-Policy',
-      "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
+      "img-src 'self' data:;"
     );
     res.setHeader('Content-Type', "image/svg+xml");
     res.render('card', { card: htmlResult });
