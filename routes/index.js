@@ -36,6 +36,10 @@ router.get('/card', async (req, res, next) => {
 
     let htmlResult = await draw.renderCard(username, name, membersince, avatar, badges);
 
+    res.setHeader(
+      'Content-Security-Policy',
+      "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
+    );
     res.setHeader('Content-Type', "image/svg+xml");
     res.render('card', { card: htmlResult });
 
