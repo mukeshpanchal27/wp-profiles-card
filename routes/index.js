@@ -30,11 +30,15 @@ router.get('/card', async (req, res, next) => {
     userData = await process.processCard(wpURL, username);
 
     const name          = userData["name"];
+    const initials      = name.charAt(0) + name.substring(name.lastIndexOf(" ") + 1 ).charAt(0);
     const membersince   = userData["memberSince"];
     const avatar        = await draw.renderAvatarSVG(userData["avatar"], displayAvatar);
     const badges        = await draw.renderBadgesSVG(userData["badges"], displayBadges);
+    const badgesCount   = userData["badges"].length;
+    const defaultHeight = 145;
+    let dynHeight       = defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30);
 
-    let htmlResult = await draw.renderCard(username, name, membersince, avatar, badges);
+    let htmlResult = await draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
 
     res.setHeader(
       'Content-Security-Policy',

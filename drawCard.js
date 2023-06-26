@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-async function renderCard(username, name, membersince, avatar, badges) {
+async function renderCard(username, name, initials, membersince, avatar, badges, dynHeight) {
     let htmlResult =  `
-<svg width="500" height="275" viewBox="0 0 500 275" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+<svg width="500" height="${dynHeight}" viewBox="0 0 500 ${dynHeight}" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
 <style type="text/css" >
 <![CDATA[
 .name {
@@ -20,11 +20,11 @@ async function renderCard(username, name, membersince, avatar, badges) {
     font: 700 40px 'Segoe UI', Ubuntu, Sans-Serif;
     fill: #191E23;
 }
-.stagger {
+.achievement {
     opacity: 0;
     animation: fadeInAnim 0.3s ease-in-out forwards;
 }
-.stat {
+.label {
     font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
     fill: #23282D;
 }
@@ -37,17 +37,6 @@ async function renderCard(username, name, membersince, avatar, badges) {
         opacity: 1;
     }
 }
-.row {
-    display: flex;
-}
-  
-.row .col {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    margin: 5px;
-}
-
 .badge-themes-reviewer circle {
 	fill: rgba(78, 50, 136, 0.25);
 	stroke: rgb(78, 50, 136);
@@ -488,13 +477,12 @@ async function renderCard(username, name, membersince, avatar, badges) {
 }
 ]]>
 </style>
-<link rel="stylesheet" href="https://profiles.wordpress.org/wp-includes/css/dashicons.min.css" type="text/css" />
   <rect x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" fill="#ffffff" stroke-opacity="1" />
     <g xmlns="http://www.w3.org/2000/svg" class="card-title" transform="translate(25, 35)">
         <g transform="translate(0, -15)">
         <svg width="100" height="100">
             <circle cx="50" cy="50" r="50%" stroke="#e4e2e2" fill="#ffffff" stroke-opacity="1" />
-            <text x="26" y="63" class="initials">RD</text>
+            <text x="26" y="63" class="initials">${initials}</text>
             ${avatar}
         </svg>
         </g>
@@ -521,27 +509,30 @@ return htmlResult;
  * @returns HTML list code with the badges and labels.
  */
 async function renderBadgesSVG(badges, displayBadges) {
-    let htmlResult = '';
-    let elementPostion = 2;
+    let htmlResult      = '';
+    let elementPostionY = 2;
+    let itemCount       = 0;
 
     badges.forEach(element => {
+        let elementPostionX = (itemCount % 2 == 0) ? 0 : 210;
         var iconClass = element.class;
         var badgeName = element.name;
         badgeClass = iconClass.substring(iconClass.lastIndexOf("badge"), iconClass.lastIndexOf(" ")).replace(' ', '-');
         dashClass = iconClass.substring(iconClass.lastIndexOf("dashicons"), iconClass.length).replace(' ', '-');
         const iconPath = `./public/images/svg/${dashClass}.svg`;
         htmlResult += `
-        <g transform="translate(0, ${elementPostion})" class="col">
-            <g class="stagger" style="animation-delay: 450ms" transform="translate(25, 0)">
+        <g transform="translate(${elementPostionX}, ${elementPostionY})" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
                 <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="${iconClass}">
                     <circle cx="12" cy="12" r="50%" />
                     ${fs.readFileSync(iconPath, { encoding: 'utf8', flag: 'r' })}
                 </svg>
-                <text class="stat  bold" x="35" y="17">${badgeName}</text>
+                <text class="label  bold" x="35" y="17">${badgeName}</text>
             </g>
         </g>`;
 
-        elementPostion += 30;
+        elementPostionY += (itemCount % 2 != 0) ? 30 : 0 ;
+        itemCount += 1;
     });
     return ('true' === displayBadges) ? htmlResult : '';
 }
