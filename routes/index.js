@@ -33,16 +33,17 @@ router.get('/card', async (req, res, next) => {
     const initials      = name.charAt(0) + name.substring(name.lastIndexOf(" ") + 1 ).charAt(0);
     const membersince   = userData["memberSince"];
     const avatar        = await draw.renderAvatarSVG(userData["avatar"], displayAvatar);
+    console.log(avatar);
     const badges        = await draw.renderBadgesSVG(userData["badges"], displayBadges);
     const badgesCount   = userData["badges"].length;
     const defaultHeight = 145;
-    let dynHeight       = defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30);
+    const dynHeight     = defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30);
 
-    let htmlResult = await draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
+    let htmlResult = draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
 
     res.setHeader(
       'Content-Security-Policy',
-      "img-src 'self' https://secure.gravatar.com/;"
+      "img-src 'self' data:"
     );
     res.setHeader('Content-Type', "image/svg+xml");
     res.render('card', { card: htmlResult });
