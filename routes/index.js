@@ -4,6 +4,8 @@ const process = require("../process");
 const draw  = require('../drawCard');
 const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
+const path = require('path');
+const fs = require('fs');
 
 /**
  * Generate card
@@ -32,14 +34,33 @@ router.get('/card', async (req, res, next) => {
     const name          = userData["name"];
     const initials      = name.charAt(0) + name.substring(name.lastIndexOf(" ") + 1 ).charAt(0);
     const membersince   = userData["memberSince"];
-    const avatar        = await draw.renderAvatarSVG(userData["avatar"], displayAvatar);
-    console.log(avatar);
+    let avatar          = userData["avatar"];
+
+
+    // process.loadImageAndConvertToBase64(userData["avatar"])
+    // .then(base64Image => {
+    //     // You can save the base64 image to a file if needed
+    //     const outputPath = path.join(__dirname, 'outputImage.txt');
+    //     avatar     = "data:text/plain;base64,";
+    //     fs.writeFileSync(outputPath, base64Image, 'utf-8');
+    //     avatar     += draw.renderAvatarSVG(base64Image, 'true');
+    //     // console.log(avatar);
+        
+    //     console.log('Image successfully loaded and saved as base64.');
+    // })
+    // .catch(err => {
+    //     console.error('An error occurred:', err.message);
+    // });
+
     const badges        = await draw.renderBadgesSVG(userData["badges"], displayBadges);
     const badgesCount   = userData["badges"].length;
     const defaultHeight = 145;
     const dynHeight     = defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30);
+    // const avatar        = await draw.renderAvatarSVG(avatarBase64, displayAvatar);
 
-    let htmlResult = draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
+    // console.log(draw.tempSaveAvatar(userData["avatar"], username));
+
+    let htmlResult = await draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
 
     res.setHeader(
       'Content-Security-Policy',
