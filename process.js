@@ -3,7 +3,34 @@ const cheerio = require('cheerio');
 require("dotenv").config();
 const http = require('https');
 const axios = require('axios');
+const fs = require('fs');
 
+
+async function fetchImageAsBase64(url) {
+  const response = await fetch(url); // Native fetch in Node 18+
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  const base64 = buffer.toString('base64');
+  const contentType = response.headers.get('content-type');
+  return `data:${contentType};base64,${base64}`;
+}
+
+async function createSVGWithImage(imageUrl, userName) {
+  try {
+    const imageDataURI = await fetchImageAsBase64(imageUrl);
+
+    const svgContent = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+        <image href="${imageDataURI}" x="0" y="0" width="800" height="600"/>
+      </svg>`;
+
+    fs.writeFileSync('public/images/avatar/' + userName + '.svg', svgContent);
+    svgContent
+    console.log('✅ SVG created with embedded image.');
+  } catch (err) {
+    console.error('❌ Error creating SVG:', err);
+  }
+}
 
 /**
  * 
@@ -28,9 +55,11 @@ async function processCard(URL, userName) {
   let badges = [];
 
   // Extracting name, avatar, and member since fields
-  const name        = $('header.site-header').find('.fn a').text();
+  const name        = $('header.site-header').find('h2 a').text();
   const avatar      = $('header.site-header').find('img.avatar').attr('src');
   const memberSince =  $('#user-meta li').find('#user-member-since strong').text();
+
+  // createSVGWithImage(avatar, userName);
 
   // Extracting profile badges
   $('#user-badges li').each((i, item) => {
@@ -73,13 +102,6 @@ function getAvatar(url) {
 
   });
 }
-
-async function f1(url) {
-  var x = await getAvatar(url);
-  console.log(x); // 10
-}
-
-// f1();
 
 async function loadImageAndConvertToBase64(url) {
   try {
@@ -155,4 +177,4 @@ async function tempSaveAvatar(avatar_url, username) {
 //   }
 // }
 
-module.exports = { processCard, loadImageAndConvertToBase64, f1 }; // getAvatarBase64, , deleteSavedAvatar };
+module.exports = { processCard, loadImageAndConvertToBase64, createSVGWithImage }; // getAvatarBase64, , deleteSavedAvatar };

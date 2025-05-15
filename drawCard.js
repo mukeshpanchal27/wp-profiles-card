@@ -4,7 +4,10 @@ const http = require('https');
 
 
 function renderCard(username, name, initials, membersince, avatar, badges, dynHeight) {
-    let htmlResult =  `
+
+	avatarUrl = avatar.substring(avatar, avatar.indexOf('&'));
+
+	let htmlResult =  `
 <svg width="500" height="${dynHeight}" viewBox="0 0 500 ${dynHeight}" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
 <style type="text/css" >
 <![CDATA[
@@ -486,7 +489,7 @@ function renderCard(username, name, initials, membersince, avatar, badges, dynHe
         <svg width="100" height="100">
             <circle cx="50" cy="50" r="50%" stroke="#e4e2e2" fill="#ffffff" stroke-opacity="1" />
             <text x="26" y="63" class="initials">${initials}</text>
-			--$--{avatar}
+			<image x="0" y="0" href="${avatarUrl}" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />
         </svg>
         </g>
         <g transform="translate(110, 20)">
@@ -545,6 +548,8 @@ async function renderBadgesSVG(badges, displayBadges) {
 }
 
 
+
+
 /**
  * 
  * @param {WordPress Profile Avatar URL} avatar 
@@ -558,11 +563,6 @@ async function renderAvatarSVG(avatarBase64, displayAvatar) {
 		// return '<image href="data:image/jpeg;base64,'+ avatarBase64 +'" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />';
 		return '<image href="data:image/jpeg;base64,'+ avatarBase64 +'" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />';
 	// }
-
-// return html;
-	// let html         = '';
-	// html = ('true' === displayAvatar) ? '<image href="'+ avatar_base64 +'" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />' : '';
-	// return html;
 }
 
-module.exports = { renderBadgesSVG, renderAvatarSVG, renderCard };
+module.exports = { renderBadgesSVG, renderCard };

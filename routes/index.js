@@ -6,6 +6,7 @@ const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
 const path = require('path');
 const fs = require('fs');
+var url = require('url');
 
 /**
  * Generate card
@@ -36,38 +37,39 @@ router.get('/card', async (req, res, next) => {
     const membersince   = userData["memberSince"];
     let avatar          = userData["avatar"];
 
-
-    // process.loadImageAndConvertToBase64(userData["avatar"])
-    // .then(base64Image => {
-    //     // You can save the base64 image to a file if needed
-    //     const outputPath = path.join(__dirname, 'outputImage.txt');
-    //     avatar     = "data:text/plain;base64,";
-    //     fs.writeFileSync(outputPath, base64Image, 'utf-8');
-    //     avatar     += draw.renderAvatarSVG(base64Image, 'true');
-    //     // console.log(avatar);
-        
-    //     console.log('Image successfully loaded and saved as base64.');
-    // })
-    // .catch(err => {
-    //     console.error('An error occurred:', err.message);
-    // });
-
     const badges        = await draw.renderBadgesSVG(userData["badges"], displayBadges);
     const badgesCount   = userData["badges"].length;
     const defaultHeight = 145;
     const dynHeight     = defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30);
     // const avatar        = await draw.renderAvatarSVG(avatarBase64, displayAvatar);
 
-    // console.log(draw.tempSaveAvatar(userData["avatar"], username));
-
     let htmlResult = await draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
 
-    res.setHeader(
-      'Content-Security-Policy',
-      "img-src 'self' data:"
-    );
-    res.setHeader('Content-Type', "image/svg+xml");
-    res.render('card', { card: htmlResult });
+    var requrl = url.format({
+        protocol: req.protocol,
+        host: req.get('host'),
+    });
+
+// console.log(requrl + '/static/images/avatar/' + username + '.svg');
+
+  try {
+
+    fs.writeFileSync('public/images/avatar/' + username + '.svg', htmlResult);
+      console.log('aaaa ✅ SVG created with embedded image.');
+
+      res.setHeader(
+        'Content-Security-Policy',
+        "img-src * 'self' data: https:;"
+      );
+      res.setHeader('Content-Type', "image/svg+xml");
+      res.sendFile(path.join(__dirname, '../public/images/avatar/', username + '.svg'));
+        // requrl + '/static/images/avatar/' + username + '.svg');
+      
+      // res.render('card', { card: htmlResult });
+
+    } catch (err) {
+      console.error('❌ Error creating SVG:', err);
+    }
 
   } catch (err) {
     res.render('user-not-found', { title: 'User Not Found', userName: username, appURL: appURL, error: err });
@@ -77,18 +79,18 @@ router.get('/card', async (req, res, next) => {
 /**
  * Only for index now.
  */
-router.get('/:page?', async (req, res, next) => {
-  // const page = parseInt(req.params.page || "1");
+// router.get('/:page?', async (req, res, next) => {
+//   // const page = parseInt(req.params.page || "1");
 
-  try {
-    const readme  = matter.read(__basedir + "/readme.md");
-    const content = readme.content;
-    const html    = md.render(content);
+//   try {
+//     const readme  = matter.read(__basedir + "/readme.md");
+//     const content = readme.content;
+//     const html    = md.render(content);
 
-    res.render('index', { title: 'Welcome to CardPress - WordPress Profile Card', postContent: html });
-  } catch (err) {
-    next(err);
-  }
-});
+//     res.render('index', { title: 'Welcome to CardPress - WordPress Profile Card', postContent: html });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 module.exports = router;
