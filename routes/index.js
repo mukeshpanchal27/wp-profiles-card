@@ -79,18 +79,18 @@ router.get('/card', async (req, res, next) => {
 /**
  * Only for index now.
  */
-// router.get('/:page?', async (req, res, next) => {
-//   // const page = parseInt(req.params.page || "1");
+router.get('/', async (req, res, next) => {
+  // const page = parseInt(req.params.page || "1");
 
-//   try {
-//     const readme  = matter.read(__basedir + "/readme.md");
-//     const content = readme.content;
-//     const html    = md.render(content);
+  try {
+    const readme  = matter.read(__basedir + "/readme.md");
+    const content = readme.content;
+    const html    = md.render(content);
 
-//     res.render('index', { title: 'Welcome to CardPress - WordPress Profile Card', postContent: html });
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+    res.render('index', { title: 'Welcome to CardPress - WordPress Profile Card', postContent: html });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
