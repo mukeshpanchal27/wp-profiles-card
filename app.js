@@ -5,9 +5,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
-const port = process.env.PORT;
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000 
 global.__basedir = __dirname;
 
 
