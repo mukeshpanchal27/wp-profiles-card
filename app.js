@@ -7,7 +7,6 @@ const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 4000 
 global.__basedir = __dirname;
 
 
@@ -53,8 +52,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
 
 module.exports = app;
