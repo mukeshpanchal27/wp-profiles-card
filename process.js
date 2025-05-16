@@ -1,4 +1,4 @@
-const request = require('request-promise');
+const request = require('request');
 const cheerio = require('cheerio');
 require("dotenv").config();
 const http = require('https');
