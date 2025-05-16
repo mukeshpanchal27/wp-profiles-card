@@ -1,12 +1,17 @@
 var createError = require('http-errors');
-var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
-var app = express();
+
+const matter = require("gray-matter");
+const md = require("markdown-it")({ html: true });
+
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 4000;
 global.__basedir = __dirname;
-const port = process.env.PORT || 4000 
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,6 +22,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+
+    try {
+      const readme  = matter.read(__basedir + "/readme.md");
+      const content = readme.content;
+      const html    = md.render(content);
+  
+      res.render('index', { title: 'Welcome to CardPress - WordPress Profile Card', postContent: html });
+    } catch (err) {
+      next(err);
+    }
+
+})
 
 app.use('/', indexRouter);
 
