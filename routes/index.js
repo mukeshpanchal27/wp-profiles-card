@@ -116,7 +116,7 @@ router.get('/users', async (req, res, next) => {
     var users = ''; 
     users += directories.length + " users found<br><br>";
 
-    directories.forEach(dir => users += "<a href='https://profiles.wordpress.org/"+ dir + "' target='_blank'>" + dir + "</a><br>");
+    directories.forEach(dir => users += "<a href='https://profiles.wordpress.org/"+ dir + "' target='_blank'>" + dir + " - " + fs.statSync(directoryPath + "/" + dir).mtime + "</a><br>");
 
     res.render('users', { title: 'CardPress - Users', postContent: users });
   } catch (err) {
