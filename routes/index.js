@@ -21,10 +21,12 @@ const axios = require('axios');
  */
 router.get('/card', async (req, res, next) => {
   let username      = req.query.username;
-  let color         = (undefined === req.query.color) ? '000000' : req.query.color;
-  let foreground    = (undefined === req.query.foreground) ? 'ffffff' : req.query.foreground;
   let displayBadges = (undefined === req.query.badges) ? 'true' : req.query.badges;
-  let displayAvatar = (undefined === req.query.avatar) ? 'true' : req.query.avatar;
+  let refresh       = (undefined === req.query.refresh) ? 'false' : req.query.refresh;
+  let color         = (undefined === req.query.color) ? '000000' : req.query.color; // TODO
+  let foreground    = (undefined === req.query.foreground) ? 'ffffff' : req.query.foreground; // TODO
+  let displayAvatar = (undefined === req.query.avatar) ? 'true' : req.query.avatar; // TODO
+  
   let appURL        = req.protocol + '://' + req.get('host');
   let userData      = [];
   let avatarPath    = "public/images/avatar/";
@@ -44,40 +46,38 @@ router.get('/card', async (req, res, next) => {
     const defaultHeight = 145;
     const dynHeight     = ('true' === displayBadges) ? (defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30)) : defaultHeight;
 
-    let htmlResult = await draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
-
-    var requrl = url.format({
-        protocol: req.protocol,
-        host: req.get('host'),
-    });
 
     try {
-      console.log(avatarPath + username + '/card.svg');
 
-      if (!fs.existsSync(avatarPath + username)) {
-        fs.mkdirSync(avatarPath + username);
-      }
+      if (!fs.existsSync(avatarPath + username + '/card.svg') || ('true' === refresh)) {
 
-      axios({
-          method: 'get',
-          url: avatar,
-          responseType: 'stream'
-        })
-        .then(function (response) {
-          response.data.pipe(fs.createWriteStream(avatarPath + username + '/avatar.jpg'))
+        if (!fs.existsSync(avatarPath + username)) {
+          fs.mkdirSync(avatarPath + username);
+        }
 
-          fs.writeFileSync(avatarPath + username + '/card.svg', htmlResult);
-          console.log('aaaa ✅ SVG created with embedded image.');
-
-          res.setHeader(
-            'Content-Security-Policy',
-            "img-src * 'self' data: https:;",
-          );
-          res.setHeader('Content-Type', "image/svg+xml");
-          res.sendFile(path.join(__dirname, '../' + avatarPath, username + '/card.svg'));
-
+        const response = await axios.get(avatar, {
+          responseType: 'arraybuffer',
         });
 
+        const base64 = Buffer.from(response.data, 'binary').toString('base64');
+
+        // Extract the MIME type (optional but recommended)
+        const contentType = response.headers['content-type'];
+
+        const base64Image = `data:${contentType};base64,${base64}`;
+
+        let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight);
+
+        fs.writeFileSync(avatarPath + username + '/card.svg', htmlResult);
+        console.log('aaaa ✅ SVG created with embedded image.');
+      }
+
+      res.setHeader(
+        'Content-Security-Policy',
+        "img-src * 'self' data: https:;",
+      );
+      res.setHeader('Content-Type', "image/svg+xml");
+      res.sendFile(path.join(__dirname, '../' + avatarPath, username + '/card.svg'));
 
       } catch (err) {
         console.error('❌ Error creating SVG:', err);

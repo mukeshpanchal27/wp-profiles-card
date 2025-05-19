@@ -50,5 +50,4 @@ async function processCard(URL, userName) {
   return user;
 }
 
-
 module.exports = { processCard };

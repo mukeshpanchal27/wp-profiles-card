@@ -3,7 +3,7 @@ const http = require('https');
 
 
 
-function renderCard(username, name, initials, membersince, avatar, badges, dynHeight) {
+function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight) {
 
 	// avatarUrl = avatar.substring(avatar, avatar.indexOf('&'));
 
@@ -490,7 +490,7 @@ function renderCard(username, name, initials, membersince, avatar, badges, dynHe
         <svg width="100" height="100">
             <circle cx="50" cy="50" r="50%" stroke="#e4e2e2" fill="#ffffff" stroke-opacity="1" />
             <text x="26" y="63" class="initials">${initials}</text>
-			<image x="0" y="0" href="https://cardpress.us/static/images/avatar/${username}/avatar.jpg" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />
+			<image x="0" y="0" href="${avatar64}" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />
         </svg>
         </g>
         <g transform="translate(110, 20)">
@@ -508,9 +508,6 @@ function renderCard(username, name, initials, membersince, avatar, badges, dynHe
 
 return htmlResult;
 }
-
-
-
 
 
 /**

@@ -19,8 +19,9 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 [![Rodrigo's WordPress Activity](https://www.cardpress.us/card?username=rodrigodonini&badges=true)](https://www.cardpress.us/)
 ```
 
-#### Displaying Options
-- badges (default true [true|false])
+#### Options
+- **badges (default true [true|false]):** Show / Hide profile badges
+- **refresh (default false [true|false]):** Refresh profile card content
 
 ### TODO LIST
 1. ~~Convert badge icons into SVG or dashicons~~ - ✅
