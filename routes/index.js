@@ -7,6 +7,7 @@ const md = require("markdown-it")({ html: true });
 const path = require('path');
 const fs = require('fs');
 var url = require('url');
+const axios = require('axios');
 
 /**
  * Generate card
@@ -41,7 +42,7 @@ router.get('/card', async (req, res, next) => {
     const badges        = await draw.renderBadgesSVG(userData["badges"], displayBadges);
     const badgesCount   = userData["badges"].length;
     const defaultHeight = 145;
-    const dynHeight     = defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30);
+    const dynHeight     = ('true' === displayBadges) ? (defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30)) : defaultHeight;
 
     let htmlResult = await draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
 
@@ -51,20 +52,32 @@ router.get('/card', async (req, res, next) => {
     });
 
     try {
+      console.log(avatarPath + username + '/card.svg');
 
-      if (!fs.existsSync(avatarPath)) {
-        fs.mkdirSync(avatarPath);
+      if (!fs.existsSync(avatarPath + username)) {
+        fs.mkdirSync(avatarPath + username);
       }
-    
-      fs.writeFileSync(avatarPath + username + '.svg', htmlResult);
-        console.log('aaaa ✅ SVG created with embedded image.');
 
-        res.setHeader(
-          'Content-Security-Policy',
-          "img-src * 'self' data: https:;"
-        );
-        res.setHeader('Content-Type', "image/svg+xml");
-        res.sendFile(path.join(__dirname, '../' + avatarPath, username + '.svg'));
+      axios({
+          method: 'get',
+          url: avatar,
+          responseType: 'stream'
+        })
+        .then(function (response) {
+          response.data.pipe(fs.createWriteStream(avatarPath + username + '/avatar.jpg'))
+
+          fs.writeFileSync(avatarPath + username + '/card.svg', htmlResult);
+          console.log('aaaa ✅ SVG created with embedded image.');
+
+          res.setHeader(
+            'Content-Security-Policy',
+            "img-src * 'self' data: https:;",
+          );
+          res.setHeader('Content-Type', "image/svg+xml");
+          res.sendFile(path.join(__dirname, '../' + avatarPath, username + '/card.svg'));
+
+        });
+
 
       } catch (err) {
         console.error('❌ Error creating SVG:', err);

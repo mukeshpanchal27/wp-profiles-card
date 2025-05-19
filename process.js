@@ -20,11 +20,10 @@ async function getData(URL) {
  * @returns Array with WordPress user profile information to load the card.
  */
 async function processCard(URL, userName) {
-  const html = await getData(URL);
-  const $    = cheerio.load(html.data); 
-  let user   = [];
-  let badges = [];
-
+  const html     = await getData(URL);
+  const $        = cheerio.load(html.data); 
+  let user       = [];
+  let badges     = [];
 
   // Extracting name, avatar, and member since fields
   const name        = $('header.site-header').find('h2 a').text();
