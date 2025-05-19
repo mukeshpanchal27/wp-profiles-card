@@ -3,6 +3,7 @@ require("dotenv").config();
 const http = require('https');
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 
 /**
  * 
@@ -50,4 +51,17 @@ async function processCard(URL, userName) {
   return user;
 }
 
-module.exports = { processCard };
+function getDirectories(dirPath) {
+  try {
+    const files = fs.readdirSync(dirPath);
+    const directories = files.filter(file => {
+      return fs.statSync(path.join(dirPath, file)).isDirectory();
+    });
+    return directories;
+  } catch (err) {
+    console.error("Error reading directory:", err);
+    return [];
+  }
+}
+
+module.exports = { processCard, getDirectories };

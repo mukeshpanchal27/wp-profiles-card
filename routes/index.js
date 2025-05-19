@@ -105,4 +105,25 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+/**
+ * List all users
+ */
+router.get('/users', async (req, res, next) => {
+
+  try {
+    const directoryPath = path.join(__dirname, '../public/images/avatar');
+    const directories = process.getDirectories(directoryPath);
+    var users = ''; 
+    users += directories.length + " users found<br><br>";
+
+    directories.forEach(dir => users += "<a href='https://profiles.wordpress.org/"+ dir + "' target='_blank'>" + dir + "</a><br>");
+
+    res.render('users', { title: 'CardPress - Users', postContent: users });
+  } catch (err) {
+    next(err);
+  }
+
+});
+
+
 module.exports = router;

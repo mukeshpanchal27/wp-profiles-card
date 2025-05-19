@@ -1,16 +1,15 @@
 # Welcome to CardPress
-An easy way to public share your WordPress.org profile activity into a web card.
+An easy way to public share your <a href="https://WordPress.org" target="_blank">WordPress.org</a> profile activity into a web card.
 
 # Features
 -   [Accessing Card](#accessing-card)
     -   [Options](#options)
 
 ### Accessing Card
-By default the card output is in SVG format.
-To access your card reach the link below by update the username by your WordPress profile name.
+To access your card reaching the link below and replacing the username by your WordPress profile name.
 
 ```md
-https://www.cardpress.us/card?username=rodrigodonini
+https://www.cardpress.us/card?username=[YOUR_USERNAME_HERE]
 ```
 
 If you want to use your card in a markdown file, just copy & paste the code below, by putting your WordPress username into the :username variable.
