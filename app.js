@@ -20,20 +20,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-
-    try {
-      const readme  = matter.read(__basedir + "/readme.md");
-      const content = readme.content;
-      const html    = md.render(content);
-  
-      res.render('index', { title: 'Welcome to CardPress - WordPress Profile Card', postContent: html });
-    } catch (err) {
-      next(err);
-    }
-
-})
-
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

@@ -547,22 +547,4 @@ async function renderBadgesSVG(badges, displayBadges) {
     return ('true' === displayBadges) ? htmlResult : '';
 }
 
-
-
-
-/**
- * 
- * @param {WordPress Profile Avatar URL} avatar 
- * @param {Display or not the WordPress Profile avatar} displayAvatar 
- * @returns HTML Img element with the avatar.
- */
-async function renderAvatarSVG(avatarBase64, displayAvatar) {
-	let html = '';
-	
-	// if ('true' === displayAvatar) {
-		// return '<image href="data:image/jpeg;base64,'+ avatarBase64 +'" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />';
-		return '<image href="data:image/jpeg;base64,'+ avatarBase64 +'" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />';
-	// }
-}
-
 module.exports = { renderBadgesSVG, renderCard };

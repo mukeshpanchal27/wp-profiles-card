@@ -41,7 +41,6 @@ router.get('/card', async (req, res, next) => {
     const badgesCount   = userData["badges"].length;
     const defaultHeight = 145;
     const dynHeight     = defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30);
-    // const avatar        = await draw.renderAvatarSVG(avatarBase64, displayAvatar);
 
     let htmlResult = await draw.renderCard(username, name, initials, membersince, avatar, badges, dynHeight);
 
@@ -49,8 +48,6 @@ router.get('/card', async (req, res, next) => {
         protocol: req.protocol,
         host: req.get('host'),
     });
-
-// console.log(requrl + '/static/images/avatar/' + username + '.svg');
 
   try {
 
@@ -63,9 +60,6 @@ router.get('/card', async (req, res, next) => {
       );
       res.setHeader('Content-Type', "image/svg+xml");
       res.sendFile(path.join(__dirname, '../public/images/avatar/', username + '.svg'));
-        // requrl + '/static/images/avatar/' + username + '.svg');
-      
-      // res.render('card', { card: htmlResult });
 
     } catch (err) {
       console.error('❌ Error creating SVG:', err);
