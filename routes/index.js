@@ -26,6 +26,7 @@ router.get('/card', async (req, res, next) => {
   let displayAvatar = (undefined === req.query.avatar) ? 'true' : req.query.avatar;
   let appURL        = req.protocol + '://' + req.get('host');
   let userData      = [];
+  let avatarPath    = "public/images/avatar/";
 
   try {
     const wpURL   = 'https://profiles.wordpress.org/' + username;
@@ -49,21 +50,25 @@ router.get('/card', async (req, res, next) => {
         host: req.get('host'),
     });
 
-  try {
+    try {
 
-    fs.writeFileSync('public/images/avatar/' + username + '.svg', htmlResult);
-      console.log('aaaa ✅ SVG created with embedded image.');
+      if (!fs.existsSync(avatarPath)) {
+        fs.mkdirSync(avatarPath);
+      }
+    
+      fs.writeFileSync(avatarPath + username + '.svg', htmlResult);
+        console.log('aaaa ✅ SVG created with embedded image.');
 
-      res.setHeader(
-        'Content-Security-Policy',
-        "img-src * 'self' data: https:;"
-      );
-      res.setHeader('Content-Type', "image/svg+xml");
-      res.sendFile(path.join(__dirname, '../public/images/avatar/', username + '.svg'));
+        res.setHeader(
+          'Content-Security-Policy',
+          "img-src * 'self' data: https:;"
+        );
+        res.setHeader('Content-Type', "image/svg+xml");
+        res.sendFile(path.join(__dirname, '../' + avatarPath, username + '.svg'));
 
-    } catch (err) {
-      console.error('❌ Error creating SVG:', err);
-    }
+      } catch (err) {
+        console.error('❌ Error creating SVG:', err);
+      }
 
   } catch (err) {
     res.render('user-not-found', { title: 'User Not Found', userName: username, appURL: appURL, error: err });
