@@ -1,0 +1,653 @@
+
+<svg width="500" height="305" viewBox="0 0 500 305" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+<title property="dc:title">Matt Mullenweg Profile</title>
+<style type="text/css" >
+<![CDATA[
+.name {
+    font: 700 20px 'Segoe UI', Ubuntu, Sans-Serif;
+    fill: #191E23;
+    animation: fadeInAnim 0.8s ease-in-out forwards;
+}
+
+.subheader {
+    font: 500 16px 'Segoe UI', Ubuntu, Sans-Serif;
+    fill: #82878C;
+    animation: fadeInAnim 0.8s ease-in-out forwards;
+}
+.initials {
+    font: 700 40px 'Segoe UI', Ubuntu, Sans-Serif;
+    fill: #191E23;
+}
+.achievement {
+    opacity: 0;
+    animation: fadeInAnim 0.3s ease-in-out forwards;
+}
+.label {
+    font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
+    fill: #23282D;
+}
+@keyframes fadeInAnim {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.badge-themes-reviewer circle {
+	fill: rgba(78, 50, 136, 0.25);
+	stroke: rgb(78, 50, 136);
+	stroke-width: 3px;
+}
+.badge-themes-reviewer svg path {
+	fill: rgb(78, 50, 136);
+}
+
+.badge-themes circle {
+	fill: white;
+	stroke: rgb(78, 50, 136);
+	stroke-width: 3px;
+}
+.badge-themes svg path {
+	fill: rgb(78, 50, 136);
+}
+
+.badge-plugins-reviewer circle {
+	fill: rgba(240, 103, 35, 0.25);
+	stroke: rgb(240, 103, 35);
+	stroke-width: 3px;
+}
+.badge-plugins-reviewer svg path {
+	fill: rgb(240, 103, 35);
+}
+
+.badge-plugins circle {
+	fill: white;
+	stroke: rgb(240, 103, 35);
+	stroke-width: 3px;
+}
+.badge-plugins svg path {
+	fill: rgb(240, 103, 35);
+}
+
+.badge-community circle {
+	fill: rgba(17, 121, 157, 0.25);
+	stroke: rgb(17, 121, 157);
+	stroke-width: 3px;
+}
+.badge-community svg path {
+	fill: rgb(17, 121, 157);
+}
+
+.badge-community-contributor circle {
+	fill: white;
+	stroke: rgb(17, 121, 157);
+	stroke-width: 3px;
+}
+.badge-community-contributor svg path {
+	fill: rgb(17, 121, 157);
+}
+
+.badge-meta circle {
+	fill: rgba(174, 173, 173, 0.25);
+	stroke: rgb(174, 173, 173);
+	stroke-width: 3px;
+}
+.badge-meta svg path {
+	fill: rgb(174, 173, 173);
+}
+
+.badge-meta-contributor circle {
+	fill: white;
+	stroke: rgb(174, 173, 173);
+	stroke-width: 3px;
+}
+.badge-meta-contributor svg path {
+	fill: rgb(174, 173, 173);
+}
+
+.badge-code-committer circle {
+	fill: rgba(205, 0, 0, 0.25);
+	stroke: rgb(205, 0, 0);
+	stroke-width: 3px;
+}
+.badge-code-committer svg path {
+	fill: rgb(205, 0, 0);
+}
+
+.badge-code circle {
+	fill: white;
+	stroke: rgb(205, 0, 0);
+	stroke-width: 3px;
+}
+.badge-code svg path {
+	fill: rgb(205, 0, 0);
+}
+
+.badge-support circle {
+	fill: rgba(51, 180, 206, 0.25);
+	stroke: rgb(51, 180, 206);
+	stroke-width: 3px;
+}
+.badge-support svg path {
+	fill: rgb(51, 180, 206);
+}
+
+.badge-support-contributor circle {
+	fill: white;
+	stroke: rgb(51, 180, 206);
+	stroke-width: 3px;
+}
+.badge-support-contributor svg path {
+	fill: rgb(51, 180, 206);
+}
+
+.badge-wordpress-tv circle {
+	fill: rgba(115, 173, 48, 0.25);
+	stroke: rgb(115, 173, 48);
+	stroke-width: 3px;
+}
+.badge-wordpress-tv svg path {
+	fill: rgb(115, 173, 48);
+}
+
+.badge-wordpress-tv-contributor circle {
+	fill: white;
+	stroke: rgb(115, 173, 48);
+	stroke-width: 3px;
+}
+.badge-wordpress-tv-contributor svg path {
+	fill: rgb(115, 173, 48);
+}
+
+.badge-organizer circle {
+	fill: white;
+	stroke: rgb(247, 173, 67);
+	stroke-width: 3px;
+}
+.badge-organizer svg path {
+	fill: rgb(247, 173, 67);
+}
+
+.badge-speaker circle {
+	fill: white;
+	stroke: rgb(247, 173, 67);
+	stroke-width: 3px;
+}
+.badge-speaker svg path {
+	fill: rgb(247, 173, 67);
+}
+
+.badge-accessibility circle {
+	fill: rgba(17, 121, 157, 0.25);
+	stroke: rgb(17, 121, 157);
+	stroke-width: 3px;
+}
+.badge-accessibility svg path {
+	fill: rgb(17, 121, 157);
+}
+
+.badge-accessibility-contributor circle {
+	fill: white;
+	stroke: rgb(17, 121, 157);
+	stroke-width: 3px;
+}
+.badge-accessibility-contributor svg path {
+	fill: rgb(17, 121, 157);
+}
+
+.badge-documentation circle {
+	fill: rgba(59, 114, 54, 0.25);
+	stroke: rgb(59, 114, 54);
+	stroke-width: 3px;
+}
+.badge-documentation svg path {
+	fill: rgb(59, 114, 54);
+}
+
+.badge-documentation-contributor circle {
+	fill: white;
+	stroke: rgb(59, 114, 54);
+	stroke-width: 3px;
+}
+.badge-documentation-contributor svg path {
+	fill: rgb(59, 114, 54);
+}
+
+.badge-mobile circle {
+	fill: rgba(251, 161, 108, 0.25);
+	stroke: rgb(251, 161, 108);
+	stroke-width: 3px;
+}
+.badge-mobile svg path {
+	fill: rgb(251, 161, 108);
+}
+
+.badge-training circle {
+	fill: rgba(233, 192, 45, 0.25);
+	stroke: rgb(233, 192, 45);
+	stroke-width: 3px;
+}
+.badge-training svg path {
+	fill: rgb(233, 192, 45);
+}
+
+.badge-training-contributor circle {
+	fill: white;
+	stroke: rgb(233, 192, 45);
+	stroke-width: 3px;
+}
+.badge-training-contributor svg path {
+	fill: rgb(233, 192, 45);
+}
+
+.badge-translation-editor circle {
+	fill: rgba(195, 34, 131, 0.25);
+	stroke: rgb(195, 34, 131);
+	stroke-width: 3px;
+}
+.badge-translation-editor svg path {
+	fill: rgb(195, 34, 131);
+}
+
+.badge-translation-contributor circle {
+	fill: white;
+	stroke: rgb(195, 34, 131);
+	stroke-width: 3px;
+}
+.badge-translation-contributor svg path {
+	fill: rgb(195, 34, 131);
+}
+
+.badge-design circle {
+	fill: rgba(238, 194, 106, 0.25);
+	stroke: rgb(238, 194, 106);
+	stroke-width: 3px;
+}
+.badge-design svg path {
+	fill: rgb(238, 194, 106);
+}
+
+.badge-design-contributor circle {
+	fill: white;
+	stroke: rgb(238, 194, 106);
+	stroke-width: 3px;
+}
+.badge-design-contributor svg path {
+	fill: rgb(238, 194, 106);
+}
+
+.badge-marketing circle {
+	fill: rgba(71, 190, 167, 0.25);
+	stroke: rgb(71, 190, 167);
+	stroke-width: 3px;
+}
+.badge-marketing svg path {
+	fill: rgb(71, 190, 167);
+}
+
+.badge-marketing-contributor circle {
+	fill: white;
+	stroke: rgb(71, 190, 167);
+	stroke-width: 3px;
+}
+.badge-marketing-contributor svg path {
+	fill: rgb(71, 190, 167);
+}
+
+.badge-wp-cli circle {
+	fill: rgba(66, 66, 66, 0.25);
+	stroke: rgb(66, 66, 66);
+	stroke-width: 3px;
+}
+.badge-wp-cli svg path {
+	fill: rgb(66, 66, 66);
+}
+
+.badge-wp-cli-contributor circle {
+	fill: white;
+	stroke: rgb(66, 66, 66);
+	stroke-width: 3px;
+}
+.badge-wp-cli-contributor svg path {
+	fill: rgb(66, 66, 66);
+}
+
+.badge-hosting circle {
+	fill: rgba(83, 88, 166, 0.25);
+	stroke: rgb(83, 88, 166);
+	stroke-width: 3px;
+}
+.badge-hosting svg path {
+	fill: rgb(83, 88, 166);
+}
+
+.badge-hosting-contributor circle {
+	fill: white;
+	stroke: rgb(83, 88, 166);
+	stroke-width: 3px;
+}
+.badge-hosting-contributor svg path {
+	fill: rgb(83, 88, 166);
+}
+
+.badge-tide circle {
+	fill: rgba(21, 38, 255, 0.25);
+	stroke: rgb(21, 38, 255);
+	stroke-width: 3px;
+}
+.badge-tide svg path {
+	fill: rgb(21, 38, 255);
+}
+
+.badge-tide-contributor circle {
+	fill: white;
+	stroke: rgb(21, 38, 255);
+	stroke-width: 3px;
+}
+.badge-tide-contributor svg path {
+	fill: rgb(21, 38, 255);
+}
+
+.badge-security-team,
+.badge-security-contributor circle {
+	fill: rgba(0, 204, 58, 0.25);
+	stroke: rgb(0, 204, 58);
+	stroke-width: 3px;
+}
+
+.badge-security-team svg path,
+.badge-security-contributor svg path {
+	fill: rgb(0, 204, 58);
+}
+
+.badge-security-contributor circle {
+	fill: unset;
+}
+
+.badge-bbpress circle {
+	fill: rgba(45, 142, 66, 0.25);
+	stroke: rgb(45, 142, 66);
+	stroke-width: 3px;
+}
+.badge-bbpress svg path {
+	fill: rgb(45, 142, 66);
+}
+
+.badge-bbpress-contributor circle {
+	fill: white;
+	stroke: rgb(45, 142, 66);
+	stroke-width: 3px;
+}
+.badge-bbpress-contributor svg path {
+	fill: rgb(45, 142, 66);
+}
+
+.badge-buddypress circle, .badge-buddypress-contributor circle {
+	stroke: rgb(216, 72, 0);
+}
+
+.badge-buddypress circle{
+	fill: rgb(216, 72, 0, 0.25);
+}
+
+.badge-test circle {
+	fill: rgba(0, 128, 128, 0.25);
+	stroke: rgb(0, 128, 128);
+	stroke-width: 3px;
+}
+.badge-test svg path {
+	fill: rgb(0, 128, 128);
+}
+
+.badge-test-contributor circle {
+	fill: white;
+	stroke: rgb(0, 128, 128);
+	stroke-width: 3px;
+}
+.badge-test-contributor svg path {
+	fill: rgb(0, 128, 128);
+}
+
+.badge-openverse circle {
+	fill: rgba(197, 43, 155, 0.25);
+	stroke: rgb(197, 43, 155);
+	stroke-width: 3px;
+}
+.badge-openverse svg path {
+	fill: rgb(197, 43, 155);
+}
+
+.badge-openverse-contributor circle {
+	fill: white;
+	stroke: rgb(197, 43, 155);
+	stroke-width: 3px;
+}
+.badge-openverse-contributor svg path {
+	fill: rgb(197, 43, 155);
+}
+
+.badge-patterns-team,
+.badge-pattern-author circle {
+	fill: rgba(146, 75, 179, 0.25);
+	stroke: rgb(146, 75, 179);
+	stroke-width: 3px;
+}
+.badge-pattern-author circle {
+	fill: white;
+}
+.badge-patterns-team svg path,
+.badge-pattern-author svg path {
+	fill: rgb(146, 75, 179);
+}
+
+.badge-photos-team circle,
+.badge-photo-contributor circle {
+	fill: rgba(59, 114, 54, 0.25);
+	stroke: rgb(59, 114, 54);
+	stroke-width: 3px;
+}
+.badge-photo-contributor circle {
+	fill: white;
+}
+.badge-photos-team svg path,
+.badge-photo-contributor svg path {
+	fill: rgb(59, 114, 54);
+}
+
+.badge-performance-team circle {
+	fill: rgba(0, 115, 170, 0.25);
+	stroke: rgb(0, 115, 170);
+	stroke-width: 3px;
+}
+.badge-performance-team svg path {
+	fill: rgb(0, 115, 170);
+}
+
+.badge-performance-contributor circle {
+	fill: white;
+	stroke: rgb(0, 115, 170);
+	stroke-width: 3px;
+}
+.badge-performance-contributor svg path {
+	fill: rgb(0, 115, 170);
+}
+]]>
+</style>
+  <rect x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" fill="#ffffff" stroke-opacity="1" />
+    <g xmlns="http://www.w3.org/2000/svg" class="card-title" transform="translate(25, 35)">
+        <g transform="translate(0, -15)">
+        <svg width="100" height="100">
+            <circle cx="50" cy="50" r="50%" stroke="#e4e2e2" fill="#ffffff" stroke-opacity="1" />
+            <text x="26" y="63" class="initials">MM</text>
+			<image x="0" y="0" href="http://127.0.0.1:3000/static/images/avatar/matt/avatar.jpg" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />
+        </svg>
+        </g>
+        <g transform="translate(110, 20)">
+            <text x="0" y="0" class="name">Matt Mullenweg WordPress Activity</text>
+            <text x="0" y="25" class="subheader">WordPress User: @matt</text>
+            <text x="0" y="45" class="subheader">Member Since: April 4th, 2003</text>
+        </g>
+    </g>
+    <g class="badges" transform="translate(0, 140)">
+        <svg viewBox="0 0 430 400" width="430" height="400" overflow="visible" class="row">
+            
+        <g transform="translate(0, 2)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-bbpress-contributor dashicons-buddicons-replies">
+                    <circle cx="12" cy="12" r="50%" />
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 522 512">
+   <path fill="currentColor"
+d="M449 263q22 23 22 55t-22.5 54.5t-54 22.5t-54.5 -23l-8 -13q0 38 -12 66q-9 21 -27 37q-9 8 -28 19l-9 5l-11 -6q-18 -12 -28 -20q-16 -16 -25 -37q-12 -27 -12 -64l-8 13q-23 23 -54.5 23t-54 -22.5t-22.5 -54.5t22 -55l16 -10q20 -13 38 -23q-35 -47 -35 -105
+q0 -12 2 -26q5 34 21.5 63t42.5 50q14 -7 33 -14t28 -9h-4q-21 0 -36 -15t-15 -36t15 -36t36 -15v-13q0 -6 3.5 -9.5t9 -3.5t9 3.5t3.5 9.5v13h52v-13q0 -6 3.5 -9.5t9 -3.5t9 3.5t3.5 9.5v13q21 0 36 15t15 36t-15 36t-36 15h-4q9 2 28.5 9.5t32.5 13.5q26 -21 43 -50
+t21 -63q2 14 2 26q0 58 -34 105q27 16 53 33v0zM218 163q9 0 17 -7.5t8 -18t-7.5 -18t-18 -7.5t-18 7.5t-7.5 18t7.5 18t18.5 7.5zM294 112q-10 0 -17.5 7.5t-7.5 18t7.5 18t18 7.5t18 -7.5t7.5 -18t-7.5 -18t-18.5 -7.5zM236 259q-5 4 -5 10t3.5 9.5t8.5 3.5h26
+q5 0 8.5 -3.5t3.5 -9t-5 -10.5q-3 -3 -7 -3h-26q-4 0 -7 3zM307 320q0 -6 -4.5 -9.5t-8.5 -3.5h-76q-4 0 -8.5 4t-4.5 9t3.5 9t9.5 4h76q6 0 9.5 -4t3.5 -9zM218 384h76q6 0 9.5 -3.5t3.5 -9t-3.5 -9.5t-9.5 -4h-76q-6 0 -9.5 4t-3.5 9.5t3.5 9t9.5 3.5zM243 435h26
+q5 0 9 -3.5t4 -9t-4 -9t-9 -3.5h-26q-5 0 -9 3.5t-4 9t4 9t9 3.5z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">bbPress Contributor</text>
+            </g>
+        </g>
+        <g transform="translate(210, 2)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-code dashicons-editor-code">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 522 512">
+   <path fill="currentColor"
+d="M230 154l-102 102l102 102l-25 52l-154 -154l154 -154zM282 358l102 -102l-102 -102l25 -52l154 154l-154 154z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">Core Contributor</text>
+            </g>
+        </g>
+        <g transform="translate(0, 32)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-code-committer dashicons-editor-code">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 522 512">
+   <path fill="currentColor"
+d="M230 154l-102 102l102 102l-25 52l-154 -154l154 -154zM282 358l102 -102l-102 -102l25 -52l154 154l-154 154z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">Core Team</text>
+            </g>
+        </g>
+        <g transform="translate(210, 32)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-marketing-contributor dashicons-format-status">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 522 512">
+   <path fill="currentColor"
+d="M256 26q125 0 182 48q48 41 48 118t-48 118q-57 48 -182 48t-182 -48q-48 -41 -48 -118t48 -118q57 -48 182 -48zM141 230q16 0 27 -11t11 -27t-11 -27t-27 -11t-27.5 11t-11.5 27t11.5 27t27.5 11zM256 230q16 0 27 -11t11 -27t-11 -27t-27 -11t-27 11t-11 27t11 27
+t27 11zM371 230q16 0 27.5 -11t11.5 -27t-11.5 -27t-27.5 -11t-27 11t-11 27t11 27t27 11zM154 371q16 0 27 11.5t11 27.5t-11 27t-27 11t-27.5 -11t-11.5 -27t11.5 -27.5t27.5 -11.5zM77 422q10 0 17.5 7.5t7.5 18.5t-7.5 18.5t-18 7.5t-18 -7.5t-7.5 -18.5t7.5 -18.5
+t18.5 -7.5z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">Marketing Contributor</text>
+            </g>
+        </g>
+        <g transform="translate(0, 62)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-meta-contributor dashicons-networking">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 532 512">
+   <path fill="currentColor"
+d="M461 333h25q11 0 18.5 7.5t7.5 18.5v76q0 11 -7.5 18.5t-18.5 7.5h-102q-11 0 -18.5 -7.5t-7.5 -18.5v-76q0 -11 7.5 -18.5t18.5 -7.5h26v-51h-128v51h25q11 0 18.5 7.5t7.5 18.5v76q0 11 -7.5 18.5t-18.5 7.5h-102q-11 0 -18.5 -7.5t-7.5 -18.5v-76q0 -11 7.5 -18.5
+t18.5 -7.5h25v-51h-128v51h26q11 0 18.5 7.5t7.5 18.5v76q0 11 -7.5 18.5t-18.5 7.5h-102q-11 0 -18.5 -7.5t-7.5 -18.5v-76q0 -11 7.5 -18.5t18.5 -7.5h25v-51q0 -22 15 -37t36 -15h128v-51h-25q-11 0 -18.5 -7.5t-7.5 -18.5v-76q0 -11 7.5 -18.5t18.5 -7.5h102
+q11 0 18.5 7.5t7.5 18.5v76q0 11 -7.5 18.5t-18.5 7.5h-25v51h128q21 0 36 15t15 37v51z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">Meta Contributor</text>
+            </g>
+        </g>
+        <g transform="translate(210, 62)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-photos-team dashicons-camera">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 522 512">
+   <path fill="currentColor"
+d="M154 128v-51h-77v51h77zM461 384v-282h-231l-51 52h-128v230h410zM282 179q31 0 53.5 22.5t22.5 54.5t-22.5 54.5t-54 22.5t-54 -22.5t-22.5 -54.5t22.5 -54.5t54.5 -22.5z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">Photos Team</text>
+            </g>
+        </g>
+        <g transform="translate(0, 92)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-plugins dashicons-admin-plugins">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 522 512">
+   <path fill="rgb(240, 103, 35)"
+d="M336 112l-83 83l-48 -48l83 -83q6 -7 18 -4.5t22 12.5t12 21.5t-4 18.5zM131 157l23 -29l231 231l-31 21q-13 13 -44 22q-29 8 -53 8h-100l-32 32q-11 11 -27 11t-27 -11t-11 -27t11 -27l32 -32v-99q0 -25 7 -54q9 -34 21 -46zM317 259l83 -83q6 -7 18 -4.5t21.5 12
+t12 21.5t-4.5 18l-83 83z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">Plugin Developer</text>
+            </g>
+        </g>
+        <g transform="translate(210, 92)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-themes dashicons-admin-appearance">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 526 512">
+   <path fill="currentColor"
+d="M371 283l-181 -181l38 -38q10 -11 38.5 -9t51.5 17q13 8 30 22q22 19 44 32q30 16 50 21q30 7 64 0zM353 301l-181 -181l-46 46q-7 7 -7 17.5t7 18.5l27 27q8 7 8 18t-8 18q-10 11 -38 31l-18 12q-17 13 -26 22q-29 29 -40 57q-13 32 4.5 50t50.5 5q28 -11 57 -40
+q9 -9 22 -26l11 -16q20 -29 32 -41q7 -7 17.5 -7t18.5 7l27 28q8 7 18.5 7t17.5 -7z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">Theme Developer</text>
+            </g>
+        </g>
+        <g transform="translate(0, 122)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-organizer dashicons-tickets">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 532 512">
+   <path fill="rgb(247, 173, 67)"
+d="M512 138l-26 72v0q-20 -7 -39 2t-26.5 29t1.5 39t30 26l-26 73l-386 -138l26 -71q19 7 38.5 -2t26.5 -29t-2 -39t-29 -27l26 -73zM372 224q15 -40 -3.5 -78.5t-58 -52.5t-78 4t-53 58t4 78.5t58 52.5t78 -4t52.5 -58zM307 103q34 12 50 43h-1q-6 -2 -11.5 1t-8 9.5
+t1.5 22.5v0q2 16 -2 27q-2 7 -15 24l-20 28l2 -105l10 3q3 1 4 -3t-2 -5l-24 -7l-22 -9q-4 -1 -5.5 2t2.5 5l8 4l1 42l-39 50l2 -105l10 3q3 0 4 -3.5t-2 -4.5l-29 -9q18 -14 41 -17.5t45 4.5zM189 158q7 -18 20 -32l1 128q-18 -19 -24 -44.5t3 -51.5zM293 280l54 -67
+q12 -14 17 -29l3 -9q4 23 -4.5 46t-27 39t-42.5 20zM275 198v82l1 2q-16 0 -31 -6q-13 -4 -23 -12zM307 353l53 19q5 17 18.5 27.5t30.5 10.5l1 76h-410v-75q21 0 36 -15t15 -36.5t-15 -36.5t-36 -15v-78h27l-7 21l109 39q-27 29 -27 68q0 43 30 73t72.5 30t72.5 -30t30 -73
+v-5zM140 294l37 13q-2 1 -2 4t3 3l10 1l14 40l-20 60l-34 -100l11 -1q4 0 3.5 -4t-4.5 -3l-24 1h-6q5 -8 12 -14zM113 358q0 -19 8 -37l44 120q-24 -11 -38 -33.5t-14 -49.5zM220 322l44 16q3 8 3 15.5t-6 27.5l-10 33zM297 358q0 26 -12.5 47t-33.5 33l28 -81l4 -12l13 5
+q1 4 1 8zM179 447l27 -81l29 79q-15 6 -30 6q-12 0 -26 -4z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">WordCamp Organizer</text>
+            </g>
+        </g>
+        <g transform="translate(210, 122)" class="col">
+            <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
+                <svg viewBox="0 0 24 24" width="24" height="24" overflow="visible" class="badge item dashicons badge-speaker dashicons-megaphone">
+                    <circle cx="12" cy="12" r="50%" />
+                    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 522 512">
+   <path fill="currentColor"
+d="M465 152q8 30 8 61q-1 28 -9 53t-23.5 41.5t-35.5 22.5q-4 2 -10 2q-2 0 -4 0.5t-6 0.5h-174l57 141q0 4 -3.5 8t-9.5 4h-77q-6 0 -9.5 -4t-2.5 -8l-26 -141h-31l-1 -1q-9 1 -19.5 -3t-19.5 -13q-21 -19 -28.5 -47.5t0.5 -56.5q7 -24 27 -33l233 -140q3 -2 5 -3.5t6 -3.5
+t12 -4q20 -6 42 1t41 24.5t34.5 43t23.5 55.5zM399 305h-1q15 -4 27 -18q22 -26 22 -78q0 -23 -7 -50q-13 -51 -46 -83q-15 -15 -31.5 -21t-31.5 -2q-31 9 -44 51q-12 40 2.5 95t45.5 84q32 30 64 22zM334 124q7 -2 15 1q17 7 27 26q10 21 10 45q0 11 -3 21q-8 20 -22 24
+q-6 2 -14 -1t-15 -10q-15 -14 -20 -38q-6 -21 1 -44q2 -9 8 -15.5t13 -8.5z" />
+</svg>
+
+                </svg>
+                <text class="label  bold" x="35" y="17">WordCamp Speaker</text>
+            </g>
+        </g>
+        </svg>
+    </g>
+</svg>
