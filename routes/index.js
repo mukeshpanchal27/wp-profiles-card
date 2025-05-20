@@ -69,7 +69,7 @@ router.get('/card', async (req, res, next) => {
         let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight);
 
         fs.writeFileSync(avatarPath + username + '/card.svg', htmlResult);
-        console.log('aaaa ✅ SVG created with embedded image.');
+        console.log('✅ SVG created with embedded image.');
       }
 
       res.setHeader(
