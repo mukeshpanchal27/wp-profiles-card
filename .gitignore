@@ -2,4 +2,6 @@ node_modules
 .DS_Store
 .env
 functionality
-public/card
+public/images/card
+public/images/avatar
+public/images/cover
