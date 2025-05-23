@@ -5,8 +5,6 @@ const http = require('https');
 
 function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight) {
 
-	// avatarUrl = avatar.substring(avatar, avatar.indexOf('&'));
-
 	let htmlResult =  `
 <svg width="500" height="${dynHeight}" viewBox="0 0 500 ${dynHeight}" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
 <title property="dc:title">${name} Profile</title>
@@ -17,7 +15,10 @@ function renderCard(username, name, initials, membersince, avatar64, badges, dyn
     fill: #191E23;
     animation: fadeInAnim 0.8s ease-in-out forwards;
 }
-
+.subtitle {
+    font: 700 14px 'Segoe UI', Ubuntu, Sans-Serif;
+    fill: #191E23;
+}
 .subheader {
     font: 500 16px 'Segoe UI', Ubuntu, Sans-Serif;
     fill: #82878C;
@@ -487,16 +488,19 @@ function renderCard(username, name, initials, membersince, avatar64, badges, dyn
   <rect x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" fill="#ffffff" stroke-opacity="1" />
     <g xmlns="http://www.w3.org/2000/svg" class="card-title" transform="translate(25, 35)">
         <g transform="translate(0, -15)">
-        <svg width="100" height="100">
-            <circle cx="50" cy="50" r="50%" stroke="#e4e2e2" fill="#ffffff" stroke-opacity="1" />
-            <text x="26" y="63" class="initials">${initials}</text>
-			<image x="0" y="0" href="${avatar64}" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />
-        </svg>
+			<svg width="100" height="100">
+				<circle cx="50" cy="50" r="50%" stroke="#e4e2e2" fill="#ffffff" stroke-opacity="1" />
+				<text x="26" y="63" class="initials">${initials}</text>
+				<image x="0" y="0" href="${avatar64}" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />
+			</svg>
         </g>
-        <g transform="translate(110, 20)">
-            <text x="0" y="0" class="name">${name} WordPress Activity</text>
-            <text x="0" y="25" class="subheader">WordPress User: @${username}</text>
-            <text x="0" y="45" class="subheader">Member Since: ${membersince}</text>
+        <g transform="translate(110, 5)">
+    		<text x="0" y="0">
+				<tspan x="0" y="0" class="subtitle">WordPress Activity</tspan>	
+				<tspan x="0" y="25" class="name">${name}</tspan>
+				<tspan x="0" y="45" class="subheader">User: @${username}</tspan>
+				<tspan x="0" y="65" class="subheader">Member Since: ${membersince}</tspan>
+			</text>
         </g>
     </g>
     <g class="badges" transform="translate(0, 140)">
