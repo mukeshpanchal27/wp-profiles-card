@@ -51,17 +51,50 @@ async function processCard(URL, userName) {
   return user;
 }
 
+/**
+ * 
+ * @param {Main directory path} dirPath 
+ * @returns Array with directories in the main directory path sorted by creation date
+ */
 function getDirectories(dirPath) {
   try {
-    const files = fs.readdirSync(dirPath);
-    const directories = files.filter(file => {
-      return fs.statSync(path.join(dirPath, file)).isDirectory();
-    });
-    return directories;
+  return fs.readdirSync(dirPath, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => {
+      const fullPath = path.join(dirPath, dirent.name);
+      const stats = fs.statSync(fullPath);
+      return {
+        name: dirent.name,
+        created: stats.birthtime,
+      };
+    })
+    .sort((a, b) => a.created.getTime() - b.created.getTime())
+    .map(item => item.name);
   } catch (err) {
     console.error("Error reading directory:", err);
     return [];
   }
 }
 
-module.exports = { processCard, getDirectories };
+/**
+ * 
+ * @param {Directory path} dirPath 
+ * @returns Date and time of the directory creation
+ */
+function getDirectoryDateTime(dirPath) {
+  try {
+    const stats = fs.statSync(dirPath);
+    if (stats.isDirectory()) {
+      const date = new Date(stats.mtime);
+      const formattedDate = date.toLocaleDateString();
+      const formattedTime = date.toLocaleTimeString();
+      return { date: formattedDate, time: formattedTime };
+    } else {
+      return 'Not a directory';
+    }
+  } catch (error) {
+    return 'Directory not found';
+  }
+}
+
+module.exports = { processCard, getDirectories, getDirectoryDateTime };

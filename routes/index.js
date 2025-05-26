@@ -60,10 +60,7 @@ router.get('/card', async (req, res, next) => {
         });
 
         const base64 = Buffer.from(response.data, 'binary').toString('base64');
-
-        // Extract the MIME type (optional but recommended)
         const contentType = response.headers['content-type'];
-
         const base64Image = `data:${contentType};base64,${base64}`;
 
         let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight);
@@ -89,11 +86,9 @@ router.get('/card', async (req, res, next) => {
 });
 
 /**
- * Only for index now.
+ * Render index page
  */
 router.get('/', async (req, res, next) => {
-  // const page = parseInt(req.params.page || "1");
-
   try {
     const readme  = matter.read(__basedir + "/readme.md");
     const content = readme.content;
@@ -113,11 +108,19 @@ router.get('/users', async (req, res, next) => {
   try {
     const directoryPath = path.join(__dirname, '../public/images/avatar');
     const directories = process.getDirectories(directoryPath);
+    console.log("Directories found: ", directories);
     var users = ''; 
-    users += directories.length + " users found<br><br>";
+    users += directories.length + " users found<br><br><section class='users-list'>";
 
-    directories.forEach(dir => users += "<a href='https://profiles.wordpress.org/"+ dir + "' target='_blank'>" + dir + " - " + fs.statSync(directoryPath + "/" + dir).mtime + "</a><br>");
-
+    directories.forEach(dir => users 
+      += "<div><span>User: " + dir + "</span> - "
+      + "<a href='https://profiles.wordpress.org/" + dir + "' target='_blank'>WordPress</a> - "
+      + "<a href='https://cardpress.us/card?username=" + dir + "' target='_blank'>CardPress</a> - "
+      + "<span>" + process.getDirectoryDateTime(directoryPath + "/" + dir).date + "</span> - " 
+      + "<span>" + process.getDirectoryDateTime(directoryPath + "/" + dir).time + "</span></div>"
+      );
+    
+    users += "</section>";
     res.render('users', { title: 'CardPress - Users', postContent: users });
   } catch (err) {
     next(err);

@@ -1,8 +1,17 @@
 const fs = require('fs');
 const http = require('https');
 
-
-
+/**
+ * 
+ * @param {WordPress profile username} username 
+ * @param {Real name} name 
+ * @param {User initials} initials 
+ * @param {Date of membership} membersince 
+ * @param {Avatar code in 64} avatar64 
+ * @param {Formatted badges list} badges 
+ * @param {Dynamic height value for the card based on content} dynHeight 
+ * @returns SVG code with the user profile card
+ */
 function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight) {
 
 	let htmlResult =  `
@@ -512,7 +521,6 @@ function renderCard(username, name, initials, membersince, avatar64, badges, dyn
 
 return htmlResult;
 }
-
 
 /**
  * 
