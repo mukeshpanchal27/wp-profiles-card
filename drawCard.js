@@ -42,7 +42,7 @@ function renderCard(username, name, initials, membersince, avatar64, badges, dyn
     animation: fadeInAnim 0.3s ease-in-out forwards;
 }
 .label {
-    font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
+    font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
     fill: #23282D;
 }
 @keyframes fadeInAnim {

@@ -2,5 +2,5 @@ node_modules
 .DS_Store
 .env
 functionality
-public/images/avatar/*
-!public/images/avatar/.ignore
+public/images/avatar
+static/images/avatar

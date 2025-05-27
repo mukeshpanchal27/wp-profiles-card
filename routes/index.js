@@ -49,6 +49,10 @@ router.get('/card', async (req, res, next) => {
 
     try {
 
+      if (!fs.existsSync(avatarPath)) {
+        fs.mkdirSync(avatarPath);
+      }
+
       if (!fs.existsSync(avatarPath + username + '/card.svg') || ('true' === refresh)) {
 
         if (!fs.existsSync(avatarPath + username)) {
