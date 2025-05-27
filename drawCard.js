@@ -404,11 +404,19 @@ function renderCard(username, name, initials, membersince, avatar64, badges, dyn
 }
 
 .badge-buddypress circle, .badge-buddypress-contributor circle {
+	fill: white;
 	stroke: rgb(216, 72, 0);
+	stroke-width: 3px;
 }
 
-.badge-buddypress circle{
+.badge-buddypress svg path, .badge-buddypress-contributor svg path {
+	fill: rgb(216, 72, 0);
+}
+
+.badge-buddypress circle
+	fill: white;
 	fill: rgb(216, 72, 0, 0.25);
+	stroke-width: 3px;
 }
 
 .badge-test circle {
@@ -540,6 +548,7 @@ async function renderBadgesSVG(badges, displayBadges) {
         badgeClass = iconClass.substring(iconClass.lastIndexOf("badge"), iconClass.lastIndexOf(" ")).replace(' ', '-');
         dashClass = iconClass.substring(iconClass.lastIndexOf("dashicons"), iconClass.length).replace(' ', '-');
         const iconPath = `./public/images/svg/${dashClass}.svg`;
+
         htmlResult += `
         <g transform="translate(${elementPostionX}, ${elementPostionY})" class="col">
             <g class="achievement" style="animation-delay: 450ms" transform="translate(25, 0)">
