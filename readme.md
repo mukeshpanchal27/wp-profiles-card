@@ -1,9 +1,3 @@
-<style>
-.markdown-body img {
-    max-width: 600px;
-}
-</style>
-
 # Welcome to CardPress
 
 Have you considered sharing your public <a href="https://wordpress.org/" target="_blank">WordPress.org</a> profile? You can now present it in a card format that showcases your achievements. This card displays your avatar, name, badges, and more.
@@ -15,13 +9,13 @@ Have you considered sharing your public <a href="https://wordpress.org/" target=
     -   [Options](#options)
 
 ### Accessing Card
-To access your card reaching the link below and replacing the username by your WordPress profile name.
+To access your card, reach the link below and replace the username with your WordPress profile name.
 
 ```md
 https://www.cardpress.us/card?username=[YOUR_USERNAME_HERE]
 ```
 
-If you want to use your card in a markdown file, just copy & paste the code below, by putting your WordPress username into the :username variable.
+If you want to use your card in a markdown file, just copy & paste the code below, by putting your WordPress username into the username variable.
 
 ```md
 [![Rodrigo's WordPress Activity](https://www.cardpress.us/card?username=rodrigodonini&badges=true)](https://www.cardpress.us/)
@@ -43,7 +37,11 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 3. Visual Improvements
 
 ### REPORT ISSUES & SUGGESTIONS
-Bugs or suggestions to improve the tool can be reported <a href="https://github.com/donini/wp-profiles-card/issues/new" target="_blank">here</a>. Check first if it isn't <a href="https://github.com/donini/wp-profiles-card/issues" target="_blank">reported</a> yet.
+Bugs or suggestions to improve the tool can be reported <a href="https://github.com/donini/wp-profiles-card/issues/new" target="_blank">here</a>. Check first if it hasn't been <a href="https://github.com/donini/wp-profiles-card/issues" target="_blank">reported</a> yet.
+
+### COLLABORATE
+It's our project, it's made for the community, and its source code is stored on <a href="https://github.com/donini/wp-profiles-card" target="_blank">GitHub</a>, check it out. 
+
 
 ### SUPPORT THIS PROJECT
 Together, we can keep this service running for the community, and all donations raised will go towards keeping this service running, such as hosting costs. Buy me a coffee ☕️
