@@ -112,7 +112,6 @@ router.get('/users', async (req, res, next) => {
   try {
     const directoryPath = path.join(__dirname, '../public/images/avatar');
     const directories = process.getDirectories(directoryPath);
-    console.log("Directories found: ", directories);
     var users = ''; 
     users += directories.length + " users found<br><br><section class='users-list'>";
 

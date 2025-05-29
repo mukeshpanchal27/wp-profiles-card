@@ -1,3 +1,9 @@
+<style>
+.markdown-body img {
+    max-width: 600px;
+}
+</style>
+
 # Welcome to CardPress
 
 Have you considered sharing your public <a href="https://wordpress.org/" target="_blank">WordPress.org</a> profile? You can now present it in a card format that showcases your achievements. This card displays your avatar, name, badges, and more.
@@ -21,18 +27,23 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 [![Rodrigo's WordPress Activity](https://www.cardpress.us/card?username=rodrigodonini&badges=true)](https://www.cardpress.us/)
 ```
 
+![CardPress Example](static/images/CardExample.jpg "CardPress Example")
+
+
 #### Options
-- **badges (default true [true|false]):** Show / Hide profile badges
-- **refresh (default false [true|false]):** Refresh profile card content
+- **badges** [true|false] default true: Show / Hide profile badges
+- **refresh** [true|false] default false: Refresh profile card content
 
 ### TODO LIST
 1. ~~Convert badge icons into SVG or dashicons~~ - ✅
 2. Displaying Options
-    - color (default HEX 000000) - TODO ⌛️
-    - foreground (default HEX ffffff) - TODO ⌛️
-    - avatar (default true - [true|false]) - TODO ⌛️
+    - color (default HEX 000000) - <a href="https://github.com/donini/wp-profiles-card/issues/1" target="_blank">TODO</a> ⌛️
+    - foreground color (default HEX ffffff) - <a href="https://github.com/donini/wp-profiles-card/issues/2" target="_blank">TODO</a> ⌛️
+    - avatar (default true - [true|false]) - <a href="https://github.com/donini/wp-profiles-card/issues/3" target="_blank">TODO</a> ⌛️
 3. Visual Improvements
 
+### REPORT ISSUES & SUGGESTIONS
+Bugs or suggestions to improve the tool can be reported <a href="https://github.com/donini/wp-profiles-card/issues/new" target="_blank">here</a>. Check first if it isn't <a href="https://github.com/donini/wp-profiles-card/issues" target="_blank">reported</a> yet.
 
 ### SUPPORT THIS PROJECT
 Together, we can keep this service running for the community, and all donations raised will go towards keeping this service running, such as hosting costs. Buy me a coffee ☕️
