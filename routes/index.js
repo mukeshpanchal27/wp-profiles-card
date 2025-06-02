@@ -13,21 +13,27 @@ const axios = require('axios');
  * Generate card
  * Params: {
  *  username: string
- *  color: string HEX color
+ *  displayBadges: boolean
+ *  displayHeader: boolean
+ *  refresh: boolean
+ *  headerColor: string HEX color
+ *  nameColor: string HEX color
+ *  subHeaderColor: string HEX color
+ *  badgeLabelColor: string HEX color
  *  foreground: string HEX color
- *  badges: boolean
- *  header: boolean
- *  avatar: boolean
  * }
  */
 router.get('/card', async (req, res, next) => {
-  let username      = req.query.username;
-  let displayBadges = (undefined === req.query.badges) ? 'true' : req.query.badges;
-  let displayHeader = (undefined === req.query.header) ? 'true' : req.query.header;
-  let refresh       = (undefined === req.query.refresh) ? 'false' : req.query.refresh;
-  let color         = (undefined === req.query.color) ? '000000' : req.query.color; // TODO
-  let foreground    = (undefined === req.query.foreground) ? 'ffffff' : req.query.foreground; // TODO
-  let displayAvatar = (undefined === req.query.avatar) ? 'true' : req.query.avatar; // TODO
+  let username        = req.query.username;
+  let displayBadges   = (undefined === req.query.badges) ? 'true' : req.query.badges;
+  let displayHeader   = (undefined === req.query.header) ? 'true' : req.query.header;
+  let refresh         = (undefined === req.query.refresh) ? 'false' : req.query.refresh;
+  let headerColor     = (undefined === req.query.headerColor) ? '191E23' : req.query.headerColor;
+  let nameColor       = (undefined === req.query.nameColor) ? '191E23' : req.query.nameColor;
+  let subHeaderColor  = (undefined === req.query.subHeaderColor) ? '82878C;' : req.query.subHeaderColor;
+  let badgeLabelColor = (undefined === req.query.badgeLabelColor) ? '23282D;' : req.query.badgeLabelColor;
+  let foreground      = (undefined === req.query.foreground) ? 'ffffff' : req.query.foreground;
+  let displayAvatar   = (undefined === req.query.avatar) ? 'true' : req.query.avatar; // TODO
   
   let appURL        = req.protocol + '://' + req.get('host');
   let userData      = [];
@@ -69,7 +75,7 @@ router.get('/card', async (req, res, next) => {
         const contentType = response.headers['content-type'];
         const base64Image = `data:${contentType};base64,${base64}`;
 
-        let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight, displayHeader);
+        let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground);
 
         fs.writeFileSync(avatarPath + username + '/card.svg', htmlResult);
         console.log('✅ SVG created with embedded image.');
@@ -101,6 +107,21 @@ router.get('/', async (req, res, next) => {
     const html    = md.render(content);
 
     res.render('index', { title: 'Welcome to CardPress - WordPress Profile Card', postContent: html });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * Render changelog page
+ */
+router.get('/changelog', async (req, res, next) => {
+  try {
+    const readme  = matter.read(__basedir + "/changelog.md");
+    const content = readme.content;
+    const html    = md.render(content);
+
+    res.render('index', { title: 'CardPress - WordPress Profile Card - Changelog', postContent: html });
   } catch (err) {
     next(err);
   }
