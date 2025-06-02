@@ -1101,3 +1101,7 @@
   .markdown-body ::-webkit-calendar-picker-indicator {
 	filter: invert(50%);
   }
+
+  .markdown-body .twitter-tweet {
+	margin: 15px 0 !important;
+  }

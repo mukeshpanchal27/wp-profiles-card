@@ -4,7 +4,7 @@ Have you considered sharing your public <a href="https://wordpress.org/" target=
 
 <a href="https://cardpress.us/" target="_blank">CardPress</a> was developed for the community to highlight your accomplishments. It creates an image that can be easily shared using a URL or Markdown. Additionally, it fully supports <a href="https://docs.github.com/en/get-started/start-your-journey/setting-up-your-profile#adding-a-profile-readme" target="_blank">GitHub profile pages.</a>
 
-# Features
+## Features
 -   [Accessing Card](#accessing-card)
     -   [Options](#options)
 
@@ -28,22 +28,28 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 - **badges** [true|false] default true: Show / Hide profile badges
 - **header** [true|false] default true: Show / Hide header section (avatar, name, username, member since)
 - **refresh** [true|false] default false: Refresh profile card content
+- **headerColor** [HEX COLOR] default value _191E23_
+- **nameColor** [HEX COLOR] default value _191E23_
+- **subHeaderColor** [HEX COLOR] default value _82878C_
+- **badgeLabelColor** [HEX COLOR] default value _23282D_
+- **foreground** [HEX COLOR] default value _FFFFFF_
 
-### TODO LIST
-1. ~~Convert badge icons into SVG or dashicons~~ - ✅
-2. Displaying Options
-    - color (default HEX 000000) - <a href="https://github.com/donini/wp-profiles-card/issues/1" target="_blank">TODO</a> ⌛️
-    - foreground color (default HEX ffffff) - <a href="https://github.com/donini/wp-profiles-card/issues/2" target="_blank">TODO</a> ⌛️
-    - avatar (default true - [true|false]) - <a href="https://github.com/donini/wp-profiles-card/issues/3" target="_blank">TODO</a> ⌛️
-3. Visual Improvements
+## Collaborate - Report Issues & Suggestions 💪
 
-### REPORT ISSUES & SUGGESTIONS
-Bugs or suggestions to improve the tool can be reported <a href="https://github.com/donini/wp-profiles-card/issues/new" target="_blank">here</a>. Check first if it hasn't been <a href="https://github.com/donini/wp-profiles-card/issues" target="_blank">reported</a> yet.
+This is our project — built for the community — and there’s always room for improvement. The source code is available on <a href="https://github.com/donini/wp-profiles-card" target="_blank">GitHub</a>, so feel free to check it out. If you come across any bugs or have suggestions to enhance the tool, you can report them <a href="https://github.com/donini/wp-profiles-card/issues/new" target="_blank">here</a>. Just make sure to check if the issue hasn’t already been <a href="https://github.com/donini/wp-profiles-card/issues" target="_blank">reported</a>.
 
-### COLLABORATE
-It's our project, it's made for the community, and its source code is stored on <a href="https://github.com/donini/wp-profiles-card" target="_blank">GitHub</a>, check it out. 
+## Stay Updated with Our Changelog 📢
 
+Stay up to date with the latest features, fixes, and improvements in CardPress.
+Check out the full changelog <a href="https://cardpress.us/changelog">here</a> to see what’s new!
 
-### SUPPORT THIS PROJECT
-Together, we can keep this service running for the community, and all donations raised will go towards keeping this service running, such as hosting costs. Buy me a coffee ☕️
+## WordPress Team Recognition 🩵
+
+It is beautful to see so many users sharing their profiles through it. Thanks so much for the mention — CardPress was created for the community, and we truly appreciate the support! 🫶
+
+<blockquote class="twitter-tweet" data-cards="hidden" data-dnt="true" align="center"><p lang="en" dir="ltr">Show off your <a href="https://t.co/B0aO4F9PVs">https://t.co/B0aO4F9PVs</a> achievements with CardPress. Created by WordPress contributor <a href="https://twitter.com/donini?ref_src=twsrc%5Etfw">@donini</a>, this simple tool creates shareable cards highlighting your badges, contributions, and profile, perfect for GitHub, portfolios, or blogs. Generate your card today at…</p>&mdash; WordPress (@WordPress) <a href="https://twitter.com/WordPress/status/1928557192619204767?ref_src=twsrc%5Etfw">May 30, 2025</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+## Support this Project ☕️
+Together, we can keep this service running for the community, and all donations raised will go towards keeping this service running, such as hosting costs. ☕️
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="cardpress" data-color="#252525" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>

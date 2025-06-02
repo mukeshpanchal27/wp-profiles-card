@@ -11,32 +11,41 @@ const http = require('https');
  * @param {Formatted badges list} badges 
  * @param {Dynamic height value for the card based on content} dynHeight 
  * @param {Display header section} displayHeader 
+ * @param {Header color} headerColor
+ * @param {Name color} nameColor
+ * @param {Subheader color} subHeaderColor
+ * @param {Badge label color} badgeLabelColor
+ * @param {Foreground color} foreground
+
  * @returns SVG code with the user profile card
  */
-function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight, displayHeader) {
+function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground) {
 
 	let htmlResult =  `
 <svg width="500" height="${dynHeight}" viewBox="0 0 500 ${dynHeight}" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
 <title property="dc:title">${name} Profile</title>
 <style type="text/css" >
 <![CDATA[
+svg .card-box {
+	fill: #${foreground};
+}
 .name {
     font: 700 20px 'Segoe UI', Ubuntu, Sans-Serif;
-    fill: #191E23;
+    fill: #${nameColor};
     animation: fadeInAnim 0.8s ease-in-out forwards;
 }
 .subtitle {
     font: 700 14px 'Segoe UI', Ubuntu, Sans-Serif;
-    fill: #191E23;
+    fill: #${headerColor};
 }
 .subheader {
     font: 500 16px 'Segoe UI', Ubuntu, Sans-Serif;
-    fill: #82878C;
+    fill: #${subHeaderColor};
     animation: fadeInAnim 0.8s ease-in-out forwards;
 }
 .initials {
     font: 700 40px 'Segoe UI', Ubuntu, Sans-Serif;
-    fill: #191E23;
+    fill: #${nameColor};
 }
 .achievement {
     opacity: 0;
@@ -44,7 +53,7 @@ function renderCard(username, name, initials, membersince, avatar64, badges, dyn
 }
 .label {
     font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
-    fill: #23282D;
+    fill: #${badgeLabelColor};
 }
 @keyframes fadeInAnim {
     from {
@@ -503,7 +512,7 @@ function renderCard(username, name, initials, membersince, avatar64, badges, dyn
 }
 ]]>
 </style>
-  <rect x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" fill="#ffffff" stroke-opacity="1" />
+  <rect class="card-box" x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" stroke-opacity="1" />
     ${('true' === displayHeader) ? `<g xmlns="http://www.w3.org/2000/svg" class="card-title" transform="translate(25, 35)">
         <g transform="translate(0, -15)">
 			<svg width="100" height="100">
