@@ -55,6 +55,7 @@ svg .card-box {
     font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
     fill: #${badgeLabelColor};
 }
+
 @keyframes fadeInAnim {
     from {
         opacity: 0;
@@ -64,13 +65,57 @@ svg .card-box {
         opacity: 1;
     }
 }
+.badge-unknown circle {
+	fill: white;
+	stroke: rgb(199, 199, 199);
+	stroke-width: 3px;
+}
+.badge-unknown svg path {
+	fill: rgb(199, 199, 199);
+}
+
+.badge-media-corps-contributor circle {
+	fill: white;
+}
+.badge-media-corps-team circle {
+	background: rgba(19, 159, 148, 0.25);
+}
+.badge-media-corps-team,
+.badge-media-corps-contributor {
+	stroke: rgb(19, 159, 148);
+	stroke-width: 3px;
+}
+.badge-media-corps-team svg path,
+.badge-media-corps-contributor svg path {
+	fill: rgb(19, 159, 148);
+}
+
+.badge-themes circle {
+	fill: white;
+}
 .badge-themes-reviewer circle {
 	fill: rgba(78, 50, 136, 0.25);
+}
+.badge-themes circle,
+.badge-themes-reviewer circle {
 	stroke: rgb(78, 50, 136);
 	stroke-width: 3px;
 }
+.badge-themes svg path,
 .badge-themes-reviewer svg path {
 	fill: rgb(78, 50, 136);
+}
+
+
+.badge-sustainability-team circle,
+.badge-sustainability-contributor circle {
+    fill: white;
+    stroke: rgb(23, 127, 106);
+	stroke-width: 3px;
+}
+.badge-sustainability-team  svg path,
+.badge-sustainability-contributor svg path {
+	fill: rgb(23, 127, 106);
 }
 
 .badge-wordcamp-volunteer circle {
@@ -82,119 +127,100 @@ svg .card-box {
 	fill: rgb(247, 173, 67)
 }
 
-.badge-themes circle {
-	fill: white;
-	stroke: rgb(78, 50, 136);
-	stroke-width: 3px;
-}
-.badge-themes svg path {
-	fill: rgb(78, 50, 136);
-}
+
 
 .badge-plugins-reviewer circle {
 	fill: rgba(240, 103, 35, 0.25);
-	stroke: rgb(240, 103, 35);
-	stroke-width: 3px;
 }
-.badge-plugins-reviewer svg path {
-	fill: rgb(240, 103, 35);
-}
-
 .badge-plugins circle {
 	fill: white;
+}
+.badge-plugins-reviewer circle,
+.badge-plugins circle {
 	stroke: rgb(240, 103, 35);
 	stroke-width: 3px;
 }
+.badge-plugins-reviewer svg path,
 .badge-plugins svg path {
 	fill: rgb(240, 103, 35);
 }
 
 .badge-community circle {
 	fill: rgba(17, 121, 157, 0.25);
-	stroke: rgb(17, 121, 157);
-	stroke-width: 3px;
 }
-.badge-community svg path {
-	fill: rgb(17, 121, 157);
-}
-
 .badge-community-contributor circle {
 	fill: white;
+}
+.badge-community circle,
+.badge-community-contributor circle {
 	stroke: rgb(17, 121, 157);
 	stroke-width: 3px;
 }
+.badge-community svg path,
 .badge-community-contributor svg path {
 	fill: rgb(17, 121, 157);
 }
 
 .badge-meta circle {
 	fill: rgba(174, 173, 173, 0.25);
-	stroke: rgb(174, 173, 173);
-	stroke-width: 3px;
 }
-.badge-meta svg path {
-	fill: rgb(174, 173, 173);
-}
-
 .badge-meta-contributor circle {
 	fill: white;
+}
+.badge-meta circle,
+.badge-meta-contributor circle {
 	stroke: rgb(174, 173, 173);
 	stroke-width: 3px;
 }
+.badge-meta svg path,
 .badge-meta-contributor svg path {
 	fill: rgb(174, 173, 173);
 }
 
 .badge-code-committer circle {
 	fill: rgba(205, 0, 0, 0.25);
-	stroke: rgb(205, 0, 0);
-	stroke-width: 3px;
 }
-.badge-code-committer svg path {
-	fill: rgb(205, 0, 0);
-}
-
 .badge-code circle {
 	fill: white;
+}
+.badge-code-committer circle,
+.badge-code circle {
 	stroke: rgb(205, 0, 0);
 	stroke-width: 3px;
 }
+.badge-code-committer svg path,
 .badge-code svg path {
 	fill: rgb(205, 0, 0);
 }
 
 .badge-support circle {
 	fill: rgba(51, 180, 206, 0.25);
-	stroke: rgb(51, 180, 206);
-	stroke-width: 3px;
 }
-.badge-support svg path {
-	fill: rgb(51, 180, 206);
-}
-
 .badge-support-contributor circle {
 	fill: white;
+}
+.badge-support circle,
+.badge-support-contributor circle {
 	stroke: rgb(51, 180, 206);
 	stroke-width: 3px;
 }
+.badge-support svg path,
 .badge-support-contributor svg path {
 	fill: rgb(51, 180, 206);
 }
 
 .badge-wordpress-tv circle {
 	fill: rgba(115, 173, 48, 0.25);
-	stroke: rgb(115, 173, 48);
-	stroke-width: 3px;
 }
-.badge-wordpress-tv svg path {
-	fill: rgb(115, 173, 48);
-}
-
 .badge-wordpress-tv-contributor circle {
 	fill: white;
+}
+.badge-wordpress-tv circle,
+.badge-wordpress-tv-contributor circle {
 	stroke: rgb(115, 173, 48);
 	stroke-width: 3px;
 }
+.badge-wordpress-tv svg path,
 .badge-wordpress-tv-contributor svg path {
 	fill: rgb(115, 173, 48);
 }
@@ -219,36 +245,32 @@ svg .card-box {
 
 .badge-accessibility circle {
 	fill: rgba(17, 121, 157, 0.25);
-	stroke: rgb(17, 121, 157);
-	stroke-width: 3px;
 }
-.badge-accessibility svg path {
-	fill: rgb(17, 121, 157);
-}
-
 .badge-accessibility-contributor circle {
 	fill: white;
+}
+.badge-accessibility circle,
+.badge-accessibility-contributor circle {
 	stroke: rgb(17, 121, 157);
 	stroke-width: 3px;
 }
+.badge-accessibility svg path,
 .badge-accessibility-contributor svg path {
 	fill: rgb(17, 121, 157);
 }
 
 .badge-documentation circle {
 	fill: rgba(59, 114, 54, 0.25);
-	stroke: rgb(59, 114, 54);
-	stroke-width: 3px;
 }
-.badge-documentation svg path {
-	fill: rgb(59, 114, 54);
-}
-
 .badge-documentation-contributor circle {
 	fill: white;
+}
+.badge-documentation circle,
+.badge-documentation-contributor circle {
 	stroke: rgb(59, 114, 54);
 	stroke-width: 3px;
 }
+.badge-documentation svg path,
 .badge-documentation-contributor svg path {
 	fill: rgb(59, 114, 54);
 }
@@ -264,212 +286,188 @@ svg .card-box {
 
 .badge-training circle {
 	fill: rgba(233, 192, 45, 0.25);
-	stroke: rgb(233, 192, 45);
-	stroke-width: 3px;
 }
-.badge-training svg path {
-	fill: rgb(233, 192, 45);
-}
-
 .badge-training-contributor circle {
 	fill: white;
+}
+.badge-training circle,
+.badge-training-contributor circle {
 	stroke: rgb(233, 192, 45);
 	stroke-width: 3px;
 }
+.badge-training svg path,
 .badge-training-contributor svg path {
 	fill: rgb(233, 192, 45);
 }
 
 .badge-translation-editor circle {
 	fill: rgba(195, 34, 131, 0.25);
-	stroke: rgb(195, 34, 131);
-	stroke-width: 3px;
 }
-.badge-translation-editor svg path {
-	fill: rgb(195, 34, 131);
-}
-
 .badge-translation-contributor circle {
 	fill: white;
+}
+.badge-translation-editor circle,
+.badge-translation-contributor circle {
 	stroke: rgb(195, 34, 131);
 	stroke-width: 3px;
 }
+.badge-translation-editor svg path,
 .badge-translation-contributor svg path {
 	fill: rgb(195, 34, 131);
 }
 
 .badge-design circle {
 	fill: rgba(238, 194, 106, 0.25);
-	stroke: rgb(238, 194, 106);
-	stroke-width: 3px;
 }
-.badge-design svg path {
-	fill: rgb(238, 194, 106);
-}
-
 .badge-design-contributor circle {
 	fill: white;
+}
+.badge-design circle,
+.badge-design-contributor circle {
 	stroke: rgb(238, 194, 106);
 	stroke-width: 3px;
 }
+.badge-design svg path,
 .badge-design-contributor svg path {
 	fill: rgb(238, 194, 106);
 }
 
 .badge-marketing circle {
 	fill: rgba(71, 190, 167, 0.25);
-	stroke: rgb(71, 190, 167);
-	stroke-width: 3px;
 }
-.badge-marketing svg path {
-	fill: rgb(71, 190, 167);
-}
-
 .badge-marketing-contributor circle {
 	fill: white;
+}
+.badge-marketing circle,
+.badge-marketing-contributor circle {
 	stroke: rgb(71, 190, 167);
 	stroke-width: 3px;
 }
+.badge-marketing svg path,
 .badge-marketing-contributor svg path {
 	fill: rgb(71, 190, 167);
 }
 
 .badge-wp-cli circle {
 	fill: rgba(66, 66, 66, 0.25);
-	stroke: rgb(66, 66, 66);
-	stroke-width: 3px;
 }
-.badge-wp-cli svg path {
-	fill: rgb(66, 66, 66);
-}
-
 .badge-wp-cli-contributor circle {
 	fill: white;
+}
+.badge-wp-cli circle,
+.badge-wp-cli-contributor circle {
 	stroke: rgb(66, 66, 66);
 	stroke-width: 3px;
 }
+.badge-wp-cli svg path,
 .badge-wp-cli-contributor svg path {
 	fill: rgb(66, 66, 66);
 }
 
 .badge-hosting circle {
 	fill: rgba(83, 88, 166, 0.25);
-	stroke: rgb(83, 88, 166);
-	stroke-width: 3px;
 }
-.badge-hosting svg path {
-	fill: rgb(83, 88, 166);
-}
-
 .badge-hosting-contributor circle {
 	fill: white;
+}
+.badge-hosting circle,
+.badge-hosting-contributor circle {
 	stroke: rgb(83, 88, 166);
 	stroke-width: 3px;
 }
+.badge-hosting svg path,
 .badge-hosting-contributor svg path {
 	fill: rgb(83, 88, 166);
 }
 
 .badge-tide circle {
 	fill: rgba(21, 38, 255, 0.25);
-	stroke: rgb(21, 38, 255);
-	stroke-width: 3px;
 }
-.badge-tide svg path {
-	fill: rgb(21, 38, 255);
-}
-
 .badge-tide-contributor circle {
 	fill: white;
+}
+.badge-tide circle,
+.badge-tide-contributor circle {
 	stroke: rgb(21, 38, 255);
 	stroke-width: 3px;
 }
+.badge-tide svg path,
 .badge-tide-contributor svg path {
 	fill: rgb(21, 38, 255);
 }
 
+.badge-security-team {
+	fill: rgba(0, 204, 58, 0.25);
+}
+.badge-security-contributor circle {
+	fill: unset;
+}
 .badge-security-team,
 .badge-security-contributor circle {
-	fill: rgba(0, 204, 58, 0.25);
 	stroke: rgb(0, 204, 58);
 	stroke-width: 3px;
 }
-
 .badge-security-team svg path,
 .badge-security-contributor svg path {
 	fill: rgb(0, 204, 58);
 }
 
-.badge-security-contributor circle {
-	fill: unset;
-}
-
 .badge-bbpress circle {
-	fill: rgba(45, 142, 66, 0.25);
-	stroke: rgb(45, 142, 66);
-	stroke-width: 3px;
+	fill: rgba(45, 142, 66, 0.25);;
 }
-.badge-bbpress svg path {
-	fill: rgb(45, 142, 66);
-}
-
 .badge-bbpress-contributor circle {
 	fill: white;
+}
+.badge-bbpress circle,
+.badge-bbpress-contributor circle {
 	stroke: rgb(45, 142, 66);
 	stroke-width: 3px;
 }
+.badge-bbpress svg path,
 .badge-bbpress-contributor svg path {
 	fill: rgb(45, 142, 66);
 }
 
-.badge-buddypress circle, .badge-buddypress-contributor circle {
+.badge-buddypress circle, 
+.badge-buddypress-contributor circle {
 	fill: white;
 	stroke: rgb(216, 72, 0);
 	stroke-width: 3px;
 }
 
-.badge-buddypress svg path, .badge-buddypress-contributor svg path {
+.badge-buddypress svg path, 
+.badge-buddypress-contributor svg path {
 	fill: rgb(216, 72, 0);
-}
-
-.badge-buddypress circle
-	fill: white;
-	fill: rgb(216, 72, 0, 0.25);
-	stroke-width: 3px;
 }
 
 .badge-test circle {
 	fill: rgba(0, 128, 128, 0.25);
-	stroke: rgb(0, 128, 128);
-	stroke-width: 3px;
 }
-.badge-test svg path {
-	fill: rgb(0, 128, 128);
-}
-
 .badge-test-contributor circle {
 	fill: white;
+}
+.badge-test circle,
+.badge-test-contributor circle {
 	stroke: rgb(0, 128, 128);
 	stroke-width: 3px;
 }
+.badge-test svg path,
 .badge-test-contributor svg path {
 	fill: rgb(0, 128, 128);
 }
 
 .badge-openverse circle {
 	fill: rgba(197, 43, 155, 0.25);
-	stroke: rgb(197, 43, 155);
-	stroke-width: 3px;
 }
-.badge-openverse svg path {
-	fill: rgb(197, 43, 155);
-}
-
 .badge-openverse-contributor circle {
 	fill: white;
+}
+.badge-openverse circle,
+.badge-openverse-contributor circle {
 	stroke: rgb(197, 43, 155);
 	stroke-width: 3px;
 }
+.badge-openverse svg path,
 .badge-openverse-contributor svg path {
 	fill: rgb(197, 43, 155);
 }
@@ -504,18 +502,16 @@ svg .card-box {
 
 .badge-performance-team circle {
 	fill: rgba(0, 115, 170, 0.25);
-	stroke: rgb(0, 115, 170);
-	stroke-width: 3px;
 }
-.badge-performance-team svg path {
-	fill: rgb(0, 115, 170);
-}
-
 .badge-performance-contributor circle {
 	fill: white;
+}
+.badge-performance-team circle,
+.badge-performance-contributor circle {
 	stroke: rgb(0, 115, 170);
 	stroke-width: 3px;
 }
+.badge-performance-team svg path,
 .badge-performance-contributor svg path {
 	fill: rgb(0, 115, 170);
 }
