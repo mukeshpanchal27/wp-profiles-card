@@ -5,7 +5,6 @@
  */
 
 var app = require('../app');
-var cors = require('cors');
 var debug = require('debug');
 var http = require('http');
 require("dotenv").config();
@@ -16,9 +15,6 @@ require("dotenv").config();
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-app.use(cors({
-    origin: '*'
-}));
 
 /**
  * Create HTTP server.

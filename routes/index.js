@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { Process } = require('../process');
+var cors = require('cors');
 const draw  = require('../drawCard');
 const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
@@ -106,7 +107,7 @@ router.get('/card', async (req, res, next) => {
  *  username: string
  * }
  */
-router.get('/json', async (req, res, next) => {
+router.get('/json', cors(), async (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   let username = req.query.username;
   if (!username) {
