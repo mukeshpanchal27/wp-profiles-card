@@ -2,6 +2,10 @@
 
 ### Changelog
 
+**1.0.3** (6/3/2025)
+
+- FIX Missing badges and wrong style
+
 **1.0.2** (6/2/2025)
 
 - FIX WordCamp volunteer badge issue 
