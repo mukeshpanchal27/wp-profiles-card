@@ -26,7 +26,7 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 [![Rodrigo's WordPress Activity](https://www.cardpress.us/card?username=rodrigodonini&badges=true)](https://www.cardpress.us/)
 ```
 
-![CardPress Example](static/images/CardExample.jpg "CardPress Example")
+![CardPress Example](https://www.cardpress.us/static/images/CardExample.jpg "CardPress Example")
 
 
 #### Options
