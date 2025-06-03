@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const process = require("../process");
+const { Process } = require('../process');
 const draw  = require('../drawCard');
 const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
@@ -8,6 +8,12 @@ const path = require('path');
 const fs = require('fs');
 var url = require('url');
 const axios = require('axios');
+
+/**
+ * Global variables
+ */
+const avatarPath    = "public/images/avatar/";
+const directoryPath = path.join(__dirname, '../'.concat(avatarPath));
 
 /**
  * Generate card
@@ -37,12 +43,10 @@ router.get('/card', async (req, res, next) => {
   
   let appURL        = req.protocol + '://' + req.get('host');
   let userData      = [];
-  let avatarPath    = "public/images/avatar/";
 
   try {
-    const wpURL   = 'https://profiles.wordpress.org/' + username;
-
-    userData = await process.processCard(wpURL, username);
+    const process       = new Process(username);
+    userData            = await process.processCard();
 
     const name          = userData["name"];
     const initials      = name.charAt(0) + name.substring(name.lastIndexOf(" ") + 1 ).charAt(0);
@@ -100,12 +104,12 @@ router.get('/card', async (req, res, next) => {
 
 router.get('/profile', async (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
-  let username        = req.query.username;
-  let appURL        = req.protocol + '://' + req.get('host');
+  let username = req.query.username;
+  let appURL   = req.protocol + '://' + req.get('host');
 
   try {
-    const wpURL   = 'https://profiles.wordpress.org/' + username;
-    userData = await process.processCard(wpURL, username);
+    const process       = new Process(username);
+    userData            = await process.processCard();
     res.end(JSON.stringify(userData));
     
   } catch (err) {
@@ -151,8 +155,8 @@ router.get('/changelog', async (req, res, next) => {
 router.get('/users', async (req, res, next) => {
 
   try {
-    const directoryPath = path.join(__dirname, '../public/images/avatar');
-    const directories = process.getDirectories(directoryPath);
+    const directories   = await Process.getDirectories(directoryPath);
+
     var users = ''; 
     users += directories.length + " users found<br><br><section class='users-list'>";
 
@@ -160,8 +164,8 @@ router.get('/users', async (req, res, next) => {
       += "<div><span>User: " + dir + "</span> - "
       + "<a href='https://profiles.wordpress.org/" + dir + "' target='_blank'>WordPress</a> - "
       + "<a href='https://cardpress.us/card?username=" + dir + "' target='_blank'>CardPress</a> - "
-      + "<span>" + process.getDirectoryDateTime(directoryPath + "/" + dir).date + "</span> - " 
-      + "<span>" + process.getDirectoryDateTime(directoryPath + "/" + dir).time + "</span></div>"
+      + "<span>" + Process.getDirectoryDateTime(directoryPath + "/" + dir).date + "</span> - " 
+      + "<span>" + Process.getDirectoryDateTime(directoryPath + "/" + dir).time + "</span></div>"
       );
     
     users += "</section>";
