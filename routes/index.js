@@ -106,7 +106,7 @@ router.get('/card', async (req, res, next) => {
  *  username: string
  * }
  */
-router.get('/profile', async (req, res, next) => {
+router.get('/json', async (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   let username = req.query.username;
   if (!username) {
