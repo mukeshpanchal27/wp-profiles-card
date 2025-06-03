@@ -97,6 +97,24 @@ router.get('/card', async (req, res, next) => {
   }
 });
 
+
+router.get('/profile', async (req, res, next) => {
+  res.setHeader('Content-Type', 'application/json');
+  let username        = req.query.username;
+  let appURL        = req.protocol + '://' + req.get('host');
+
+  try {
+    const wpURL   = 'https://profiles.wordpress.org/' + username;
+    userData = await process.processCard(wpURL, username);
+    res.end(JSON.stringify(userData));
+    
+  } catch (err) {
+    res.setHeader('Content-Type', 'text/html');
+    res.render('user-not-found', { title: 'Error checking profile data', userName: username, appURL: appURL, error: err });
+  }
+
+});
+
 /**
  * Render index page
  */

@@ -23,7 +23,7 @@ async function getData(URL) {
 async function processCard(URL, userName) {
   const html     = await getData(URL);
   const $        = cheerio.load(html.data); 
-  let user       = [];
+  let user       = {};
   let badges     = [];
 
   // Extracting name, avatar, and member since fields
