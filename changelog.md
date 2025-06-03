@@ -6,6 +6,7 @@
 
 - FIX Missing badges and wrong style
 - [NEW Profile API - JSON Data](https://github.com/donini/wp-profiles-card/issues/12)
+- FIX JSON resulting in a CORS security error
 
 **1.0.2** (6/2/2025)
 
