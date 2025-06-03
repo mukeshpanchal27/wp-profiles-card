@@ -30,7 +30,11 @@ const directoryPath = path.join(__dirname, '../'.concat(avatarPath));
  * }
  */
 router.get('/card', async (req, res, next) => {
+  let appURL          = req.protocol + '://' + req.get('host');
   let username        = req.query.username;
+  if (!username) {
+    res.render('user-not-found', { title: 'User Not Found', userName: username, appURL: appURL, error: "User not found" });
+  }
   let displayBadges   = (undefined === req.query.badges) ? 'true' : req.query.badges;
   let displayHeader   = (undefined === req.query.header) ? 'true' : req.query.header;
   let refresh         = (undefined === req.query.refresh) ? 'false' : req.query.refresh;
@@ -41,23 +45,19 @@ router.get('/card', async (req, res, next) => {
   let foreground      = (undefined === req.query.foreground) ? 'ffffff' : req.query.foreground;
   let displayAvatar   = (undefined === req.query.avatar) ? 'true' : req.query.avatar; // TODO
   
-  let appURL        = req.protocol + '://' + req.get('host');
   let userData      = [];
 
   try {
     const process       = new Process(username);
     userData            = await process.processCard();
-
     const name          = userData["name"];
     const initials      = name.charAt(0) + name.substring(name.lastIndexOf(" ") + 1 ).charAt(0);
     const membersince   = userData["memberSince"];
     let avatar          = userData["avatar"];
-
     const badges        = await draw.renderBadgesSVG(userData["badges"], displayBadges);
     const badgesCount   = userData["badges"].length;
     const defaultHeight = ('true' === displayHeader) ? 145 : 50; // Reduced height when header is hidden
     const dynHeight     = ('true' === displayBadges) ? (defaultHeight + (32 * Math.floor((badgesCount > 4) ? badgesCount / 2 : badgesCount)) + ((badgesCount % 2 === 0) ? 0 : 30)) : defaultHeight;
-
 
     try {
 
@@ -100,27 +100,30 @@ router.get('/card', async (req, res, next) => {
     res.render('user-not-found', { title: 'User Not Found', userName: username, appURL: appURL, error: err });
   }
 });
-
-
+/**
+ * Check user profile
+ * Params: {
+ *  username: string
+ * }
+ */
 router.get('/profile', async (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   let username = req.query.username;
-  let appURL   = req.protocol + '://' + req.get('host');
+  if (!username) {
+    return res.status(400).json({ error: 'Missing username parameter' });
+  }
 
   try {
     const process       = new Process(username);
     userData            = await process.processCard();
     res.end(JSON.stringify(userData));
-    
   } catch (err) {
-    res.setHeader('Content-Type', 'text/html');
-    res.render('user-not-found', { title: 'Error checking profile data', userName: username, appURL: appURL, error: err });
+    res.status(404).json({ error: 'Error checking profile data', details: err.message });
   }
-
 });
 
 /**
- * Render index page
+ * Render index page with readme content
  */
 router.get('/', async (req, res, next) => {
   try {
@@ -135,7 +138,7 @@ router.get('/', async (req, res, next) => {
 });
 
 /**
- * Render changelog page
+ * Render changelog page with changelog content
  */
 router.get('/changelog', async (req, res, next) => {
   try {
@@ -150,7 +153,7 @@ router.get('/changelog', async (req, res, next) => {
 });
 
 /**
- * List all users
+ * Render users page with list of users
  */
 router.get('/users', async (req, res, next) => {
 
