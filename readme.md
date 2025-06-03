@@ -7,6 +7,11 @@ Have you considered sharing your public <a href="https://wordpress.org/" target=
 ## Features
 -   [Accessing Card](#accessing-card)
     -   [Options](#options)
+- [JSON Data](#json-data)
+- [Collaborate](#collaborate---report-issues--suggestions-)
+- [Changelog](#stay-updated-with-our-changelog-)
+- [Recognition](#wordpress-team-recognition-)
+- [Support this Project](#support-this-project-️)
 
 ### Accessing Card
 To access your card, reach the link below and replace the username with your WordPress profile name.
@@ -33,6 +38,16 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 - **subHeaderColor** [HEX COLOR] default value _82878C_
 - **badgeLabelColor** [HEX COLOR] default value _23282D_
 - **foreground** [HEX COLOR] default value _FFFFFF_
+
+## JSON Data
+
+Want to display WordPress profiles differently? No problem—just fetch the data using the JSON results.
+
+Want to customize how WordPress profiles are displayed? No worries! You can access the profile information using the JSON data output. This means you’re free to use the data in your own layout, design, or even integrate it into another system—whatever works best for your needs. Usage below:
+
+```md
+https://www.cardpress.us/json?username=[YOUR_USERNAME_HERE]
+```
 
 ## Collaborate - Report Issues & Suggestions 💪
 
