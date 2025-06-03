@@ -2,6 +2,11 @@
 
 ### Changelog
 
+**1.0.2** (6/2/2025)
+
+- FIX WordCamp volunteer badge issue 
+- FIX Card Sample image width issue in Readme
+
 **1.0.1** (6/1/2025)
 
 - [FIX Badge Icons Overlap with Circular Containers](https://github.com/donini/wp-profiles-card/pull/6)
