@@ -73,6 +73,15 @@ svg .card-box {
 	fill: rgb(78, 50, 136);
 }
 
+.badge-wordcamp-volunteer circle {
+	fill: white;
+	stroke: rgb(247, 173, 67);
+	stroke-width: 3px;
+}
+.badge-wordcamp-volunteer svg path {
+	fill: rgb(247, 173, 67)
+}
+
 .badge-themes circle {
 	fill: white;
 	stroke: rgb(78, 50, 136);
