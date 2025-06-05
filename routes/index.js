@@ -13,7 +13,7 @@ const axios = require('axios');
 /**
  * Global variables
  */
-const avatarPath    = "public/images/avatar/";
+const avatarPath    = "../static/avatar/";
 const directoryPath = path.join(__dirname, '../'.concat(avatarPath));
 
 /**
@@ -117,6 +117,16 @@ router.get('/json', cors(), async (req, res, next) => {
   try {
     const process       = new Process(username);
     userData            = await process.processCard();
+
+    if (!fs.existsSync(avatarPath)) {
+      fs.mkdirSync(avatarPath);
+    }
+
+    if (!fs.existsSync(avatarPath + username)) {
+      fs.mkdirSync(avatarPath + username);
+    }
+
+    fs.writeFileSync(avatarPath + username + '/card.json', JSON.stringify(userData));
     res.end(JSON.stringify(userData));
   } catch (err) {
     res.status(404).json({ error: 'Error checking profile data', details: err.message });
