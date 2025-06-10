@@ -30,15 +30,16 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 
 
 #### Parameters
+- **avatar** [true|false] default true: Show / Hide profile avatar
 - **badges** [true|false] default true: Show / Hide profile badges
 - **header** [true|false] default true: Show / Hide header section (avatar, name, username, member since)
 - **refresh** [true|false] default false: Refresh profile card content
+- **link** [true|false] default false: Add or not WordPress profile link to the card
 - **headerColor** [HEX COLOR] default value _191E23_
 - **nameColor** [HEX COLOR] default value _191E23_
 - **subHeaderColor** [HEX COLOR] default value _82878C_
 - **badgeLabelColor** [HEX COLOR] default value _23282D_
 - **foreground** [HEX COLOR] default value _FFFFFF_
-- **linkProfile** [true|false] default false: Add WordPress profile link to the card
 
 ## JSON Data
 
@@ -50,7 +51,7 @@ Want to customize how WordPress profiles are displayed? No worries! You can acce
 https://www.cardpress.us/json?username=[YOUR_USERNAME_HERE]
 ```
 
-### JSON Data Format
+### JSON Data Output Format
 ```md
 {
   "userName": "rodrigodonini",
