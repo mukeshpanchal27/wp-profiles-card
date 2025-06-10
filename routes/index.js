@@ -44,6 +44,7 @@ router.get('/card', async (req, res, next) => {
   let subHeaderColor  = (undefined === req.query.subHeaderColor) ? '82878C;' : req.query.subHeaderColor;
   let badgeLabelColor = (undefined === req.query.badgeLabelColor) ? '23282D;' : req.query.badgeLabelColor;
   let foreground      = (undefined === req.query.foreground) ? 'ffffff' : req.query.foreground;
+  let linkProfile     = (undefined === req.query.linkProfile) ? 'false' : req.query.linkProfile;
   let displayAvatar   = (undefined === req.query.avatar) ? 'true' : req.query.avatar; // TODO
   
   let userData      = [];
@@ -80,7 +81,7 @@ router.get('/card', async (req, res, next) => {
         const contentType = response.headers['content-type'];
         const base64Image = `data:${contentType};base64,${base64}`;
 
-        let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground);
+        let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground, linkProfile);
 
         fs.writeFileSync(avatarPath + username + '/card.svg', htmlResult);
         console.log('✅ SVG created with embedded image.');

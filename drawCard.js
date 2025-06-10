@@ -19,7 +19,7 @@ const http = require('https');
 
  * @returns SVG code with the user profile card
  */
-function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground) {
+function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground, linkProfile) {
 
 	let htmlResult =  `
 <svg width="500" height="${dynHeight}" viewBox="0 0 500 ${dynHeight}" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
@@ -516,8 +516,13 @@ svg .card-box {
 	fill: rgb(0, 115, 170);
 }
 ]]>
-</style>
-  <rect class="card-box" x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" stroke-opacity="1" />
+</style>`;
+
+	if ('true' === linkProfile) {
+		htmlResult +=  `<a xlink:href="https://profiles.wordpress.org/${username}/" target="_blank" xmlns:xlink="http://www.w3.org/1999/xlink">`;
+	}	
+  
+	htmlResult +=  `  <rect class="card-box" x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" stroke-opacity="1" />
     ${('true' === displayHeader) ? `<g xmlns="http://www.w3.org/2000/svg" class="card-title" transform="translate(25, 35)">
         <g transform="translate(0, -15)">
 			<svg width="100" height="100">
@@ -539,8 +544,13 @@ svg .card-box {
         <svg viewBox="0 0 430 400" width="430" height="400" overflow="visible" class="row">
             ${badges}
         </svg>
-    </g>
-</svg>`;
+    </g>`;
+
+	if ('true' === linkProfile) {
+		htmlResult +=  `</a>`;
+	}	
+  
+	htmlResult +=  `</svg>`;
 
 return htmlResult;
 }

@@ -6,7 +6,7 @@ Have you considered sharing your public <a href="https://wordpress.org/" target=
 
 ## Features
 -   [Accessing Card](#accessing-card)
-    -   [Options](#options)
+    -   [Parameters](#parameters)
 - [JSON Data](#json-data)
 - [Collaborate](#collaborate---report-issues--suggestions-)
 - [Changelog](#stay-updated-with-our-changelog-)
@@ -29,7 +29,7 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 ![CardPress Example](https://www.cardpress.us/static/images/CardExample.jpg "CardPress Example")
 
 
-#### Options
+#### Parameters
 - **badges** [true|false] default true: Show / Hide profile badges
 - **header** [true|false] default true: Show / Hide header section (avatar, name, username, member since)
 - **refresh** [true|false] default false: Refresh profile card content
@@ -38,6 +38,7 @@ If you want to use your card in a markdown file, just copy & paste the code belo
 - **subHeaderColor** [HEX COLOR] default value _82878C_
 - **badgeLabelColor** [HEX COLOR] default value _23282D_
 - **foreground** [HEX COLOR] default value _FFFFFF_
+- **linkProfile** [true|false] default false: Add WordPress profile link to the card
 
 ## JSON Data
 
@@ -47,6 +48,46 @@ Want to customize how WordPress profiles are displayed? No worries! You can acce
 
 ```md
 https://www.cardpress.us/json?username=[YOUR_USERNAME_HERE]
+```
+
+### JSON Data Format
+```md
+{
+  "userName": "rodrigodonini",
+  "name": "Rodrigo Donini",
+  "avatar": "https://secure.gravatar.com/avatar/c8cf504e5ae3826eb87591aa4f6658e912bc658a0d8aa487ad90b4ce26ff7f24?s=100&d=mm&r=g",
+  "memberSince": "December 18th, 2013",
+  "badges": [
+    {
+      "class": "badge item dashicons badge-community-contributor dashicons-groups",
+      "name": "Community Contributor"
+    },
+    {
+      "class": "badge item dashicons badge-organizer dashicons-nametag",
+      "name": "Meetup Organizer"
+    },
+    {
+      "class": "badge item dashicons badge-plugins dashicons-admin-plugins",
+      "name": "Plugin Developer"
+    },
+    {
+      "class": "badge item dashicons badge-translation-contributor dashicons-translation",
+      "name": "Translation Contributor"
+    },
+    {
+      "class": "badge item dashicons badge-organizer dashicons-tickets",
+      "name": "WordCamp Organizer"
+    },
+    {
+      "class": "badge item dashicons badge-speaker dashicons-megaphone",
+      "name": "WordCamp Speaker"
+    },
+    {
+      "class": "badge item dashicons badge-wordpress-tv-contributor dashicons-video-alt2",
+      "name": "WordPress.tv Contributor"
+    }
+  ]
+}
 ```
 
 ## Collaborate - Report Issues & Suggestions 💪
