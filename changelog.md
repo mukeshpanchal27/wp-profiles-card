@@ -2,6 +2,17 @@
 
 ### Changelog
 
+**1.0.5** (6/10/2025)
+
+- [NEW Add option to link the card to WordPress profile page](https://github.com/donini/wp-profiles-card/issues/11)
+- [NEW Display or not profile avatar](https://github.com/donini/wp-profiles-card/issues/3)
+
+**1.0.4** (6/5/2025)
+
+- NEW Move static path for avatars
+- NEW Store JSON data
+- FIX Optimize SEO image
+
 **1.0.3** (6/3/2025)
 
 - FIX Missing badges and wrong style
