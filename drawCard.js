@@ -19,7 +19,7 @@ const http = require('https');
 
  * @returns SVG code with the user profile card
  */
-function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground, linkProfile) {
+function renderCard(username, name, initials, membersince, avatar64, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground, linkProfile, displayAvatar) {
 
 	let htmlResult =  `
 <svg width="500" height="${dynHeight}" viewBox="0 0 500 ${dynHeight}" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
@@ -516,22 +516,19 @@ svg .card-box {
 	fill: rgb(0, 115, 170);
 }
 ]]>
-</style>`;
+</style>
 
-	if ('true' === linkProfile) {
-		htmlResult +=  `<a xlink:href="https://profiles.wordpress.org/${username}/" target="_blank" xmlns:xlink="http://www.w3.org/1999/xlink">`;
-	}	
-  
-	htmlResult +=  `  <rect class="card-box" x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" stroke-opacity="1" />
+	${('true' === linkProfile) ? `<a xlink:href="https://profiles.wordpress.org/${username}/" target="_blank" xmlns:xlink="http://www.w3.org/1999/xlink">` : ''}
+	<rect class="card-box" x="0" y="0" rx="4.5" height="99%" stroke="#e4e2e2" width="99%" stroke-opacity="1" />
     ${('true' === displayHeader) ? `<g xmlns="http://www.w3.org/2000/svg" class="card-title" transform="translate(25, 35)">
-        <g transform="translate(0, -15)">
+        ${('true' === displayAvatar) ? `<g transform="translate(0, -15)">
 			<svg width="100" height="100">
 				<circle cx="50" cy="50" r="50%" stroke="#e4e2e2" fill="#ffffff" stroke-opacity="1" />
 				<text x="26" y="63" class="initials">${initials}</text>
 				<image x="0" y="0" href="${avatar64}" height="100" width="100" style="clip-path: inset(2px 2px round 50%);" stroke="#e4e2e2" stroke-opacity="1" />
 			</svg>
-        </g>
-        <g transform="translate(110, 5)">
+        </g>` : ''}
+        <g transform="translate(${('true' === displayAvatar) ? '110, 5' : '0, 5'})">
     		<text x="0" y="0">
 				<tspan x="0" y="0" class="subtitle">WordPress Activity</tspan>	
 				<tspan x="0" y="25" class="name">${name}</tspan>
@@ -544,13 +541,9 @@ svg .card-box {
         <svg viewBox="0 0 430 400" width="430" height="400" overflow="visible" class="row">
             ${badges}
         </svg>
-    </g>`;
-
-	if ('true' === linkProfile) {
-		htmlResult +=  `</a>`;
-	}	
-  
-	htmlResult +=  `</svg>`;
+    </g>
+	${('true' === linkProfile) ? `</a>` : ''}
+	</svg>`;
 
 return htmlResult;
 }
