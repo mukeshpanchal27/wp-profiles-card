@@ -91,6 +91,11 @@ https://www.cardpress.us/json?username=[YOUR_USERNAME_HERE]
 }
 ```
 
+## Social Share
+
+ #cardpress
+
+
 ## Collaborate - Report Issues & Suggestions 💪
 
 This is our project — built for the community — and there’s always room for improvement. The source code is available on <a href="https://github.com/donini/wp-profiles-card" target="_blank">GitHub</a>, so feel free to check it out. If you come across any bugs or have suggestions to enhance the tool, you can report them <a href="https://github.com/donini/wp-profiles-card/issues/new" target="_blank">here</a>. Just make sure to check if the issue hasn’t already been <a href="https://github.com/donini/wp-profiles-card/issues" target="_blank">reported</a>.

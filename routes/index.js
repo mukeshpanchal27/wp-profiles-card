@@ -152,6 +152,21 @@ router.get('/', async (req, res, next) => {
 /**
  * Render changelog page with changelog content
  */
+router.get('/create', async (req, res, next) => {
+  try {
+    const readme  = matter.read(__basedir + "/create.md");
+    const content = readme.content;
+    const html    = md.render(content);
+
+    res.render('index', { title: 'CardPress - WordPress Profile Card - Create', postContent: html });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * Render changelog page with changelog content
+ */
 router.get('/changelog', async (req, res, next) => {
   try {
     const readme  = matter.read(__basedir + "/changelog.md");

@@ -1106,3 +1106,22 @@
   .markdown-body .twitter-tweet {
 	margin: 15px 0 !important;
   }
+
+.markdown-body .link button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+}
+
+.markdown-body .link {
+	position: relative;
+}
+
+.markdown-body .link .loader {
+	max-width: 30px;
+}
+
+#result {
+	display: none;
+}
