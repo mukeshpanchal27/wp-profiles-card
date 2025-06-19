@@ -2,6 +2,10 @@
 
 ### Changelog
 
+**1.0.6** (6/18/2025)
+
+- [NEW Profile Creator Wizard](https://github.com/donini/wp-profiles-card/issues/19)
+
 **1.0.5** (6/10/2025)
 
 - [NEW Add option to link the card to WordPress profile page](https://github.com/donini/wp-profiles-card/issues/11)

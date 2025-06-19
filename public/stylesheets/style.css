@@ -246,8 +246,16 @@
   .markdown-body [type=radio] {
 	box-sizing: border-box;
 	padding: 0;
+	width: 20px;
+	height: 20px;
   }
-  
+
+  .markdown-body [type=checkbox]:checked,
+  .markdown-body [type=radio]:checked {
+	background-color: rgb(59, 59, 59);
+	border-color: rgb(59, 59, 59);
+  }
+
   .markdown-body [type=number]::-webkit-inner-spin-button,
   .markdown-body [type=number]::-webkit-outer-spin-button {
 	height: auto;
@@ -593,7 +601,6 @@
   .markdown-body ul.no-list,
   .markdown-body ol.no-list {
 	padding: 0;
-	list-style-type: none;
   }
   
   .markdown-body ol[type=a] {
@@ -632,6 +639,21 @@
 	margin-top: 16px;
   }
   
+  .markdown-body .options ul {
+	padding-left: 0;
+  }
+  
+  .markdown-body .options ul li {
+	list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+	gap: 8px;
+  }
+
   .markdown-body li+li {
 	margin-top: .25em;
   }
@@ -1106,3 +1128,87 @@
   .markdown-body .twitter-tweet {
 	margin: 15px 0 !important;
   }
+
+.markdown-body .link button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+}
+.col-username {
+	position: relative;
+}
+.markdown-body .username-validation {
+
+    border: 0;
+    font-size: 12px;
+    color: var(--color-danger-fg);
+	display: none;
+}
+
+.markdown-body .link .copy {
+    position: absolute;
+    right: 5px;
+    top: 30px;
+    border: 0;
+    font-size: 12px;
+    color: var(--color-prettylights-syntax-markup-heading);
+}
+
+.markdown-body .link {
+	position: relative;
+    padding: 5px;
+    background-color: #3b3b3b;
+    border-radius: 4px;
+}
+
+.markdown-body .link div {
+	width: calc(100% - 55px);
+}
+
+.markdown-body .loader {
+	max-width: 30px;
+	background-color: transparent;
+	display: none;
+}
+
+#result {
+	display: none;
+}
+
+input[type='color'] {
+  width: 200%;
+  height: 200%;
+  margin: -50%;
+}
+.color_picker {
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  border: solid 1px #3b3b3b;
+}
+.color {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+	margin-bottom: 10px;
+}
+fieldset {
+    border: 1px solid #3b3b3b;
+    border-radius: 5px;
+    padding: 10px 0 20px;
+}
+.submit-button-col {
+	display: flex;
+	justify-content: flex-end;
+}
+.scroll-down {
+	font-size: 12px;
+	display: none;
+	margin: 8px 0 0 0;
+}

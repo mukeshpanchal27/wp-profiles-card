@@ -16,6 +16,8 @@ const http = require('https');
  * @param {Subheader color} subHeaderColor
  * @param {Badge label color} badgeLabelColor
  * @param {Foreground color} foreground
+ * @param {Link to the user profile} linkProfile
+ * @param {Display avatar} displayAvatar
 
  * @returns SVG code with the user profile card
  */
