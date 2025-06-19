@@ -422,7 +422,7 @@
   .markdown-body ol {
 	margin-top: 0;
 	margin-bottom: 0;
-	padding-left: 0;
+	padding-left: 2em;
   }
   
   .markdown-body ol ol,
@@ -601,7 +601,6 @@
   .markdown-body ul.no-list,
   .markdown-body ol.no-list {
 	padding: 0;
-	list-style-type: none;
   }
   
   .markdown-body ol[type=a] {
@@ -640,7 +639,11 @@
 	margin-top: 16px;
   }
   
-  .markdown-body li {
+  .markdown-body .options ul {
+	padding-left: 0;
+  }
+  
+  .markdown-body .options ul li {
 	list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -1131,6 +1134,16 @@
     right: 0;
     top: 0;
     border: 0;
+}
+.col-username {
+	position: relative;
+}
+.markdown-body .username-validation {
+
+    border: 0;
+    font-size: 12px;
+    color: var(--color-danger-fg);
+	display: none;
 }
 
 .markdown-body .link .copy {

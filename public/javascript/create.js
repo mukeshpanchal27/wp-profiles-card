@@ -2,8 +2,8 @@
 
   window.onload = init;
 
-  // const domain = "https://cardpress.us/";
-  const domain = "http://127.0.0.1:3000/";
+  const domain = "https://cardpress.us/";
+//   const domain = "http://127.0.0.1:3000/";
 
   function init(){
 
@@ -40,7 +40,10 @@
 
                 getProfileCard(username, headerColor, subHeaderColor, nameColor, badgeLabelColor, foregroundColor, badges, header, refresh, linkProfile, displayAvatar);
             } else {
-              alert("Please, inform username.");
+                document.querySelector(".username-validation").style.display = "block";
+                setTimeout(function() {
+                    document.querySelector(".username-validation").style.display = "none";
+                }, 3000);
             }
 
         });

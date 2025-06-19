@@ -4,16 +4,21 @@ Have you considered sharing your public <a href="https://wordpress.org/" target=
 
 <a href="https://cardpress.us/" target="_blank">CardPress</a> was developed for the community to highlight your accomplishments. It creates an image that can be easily shared using a URL or Markdown. Additionally, it fully supports <a href="https://docs.github.com/en/get-started/start-your-journey/setting-up-your-profile#adding-a-profile-readme" target="_blank">GitHub profile pages.</a>
 
-## Features
--   [Accessing Card](#accessing-card)
-    -   [Parameters](#parameters)
+## Contents
+- [Profile Wizard](#profile-wizard)
+- [Accessing Card](#accessing-card)
+    - [Parameters](#parameters)
 - [JSON Data](#json-data)
 - [Collaborate](#collaborate---report-issues--suggestions-)
 - [Changelog](#stay-updated-with-our-changelog-)
 - [Recognition](#wordpress-team-recognition-)
 - [Support this Project](#support-this-project-️)
 
-### Accessing Card
+## Profile Wizard 🆕
+
+Easily craft a personalized profile card — pick your colors, control what’s visible, and share it anywhere with a link, Markdown, JSON, or a ready-to-save image. Check out here <a href="https://cardpress.us/create">CardPress Profile Creator</a>.
+
+## Accessing Card
 To access your card, reach the link below and replace the username with your WordPress profile name.
 
 ```md
@@ -93,8 +98,7 @@ https://www.cardpress.us/json?username=[YOUR_USERNAME_HERE]
 
 ## Social Share
 
- #cardpress
-
+Show off your WordPress skills — share your CardPress profile with the world using the tag #cardpress! 🌍✨ 
 
 ## Collaborate - Report Issues & Suggestions 💪
 

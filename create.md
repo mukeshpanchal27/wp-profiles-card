@@ -10,8 +10,8 @@ Select the options below and build your card.
 <fieldset class="col-lg-6 col-sm-12">
   <legend>Profile settings:</legend>
     <div class="row">
-      <div class="col">
-        <input type="text" name="username" id="username" value="rodrigodonini" placeholder="WordPress Username" />
+      <div class="col col-username">
+        <input type="text" name="username" id="username" placeholder="WordPress Username" maxlength="255" /><span class="username-validation">Please, inform username.</span>
       </div>
     </div>
     <div class="row">
@@ -45,7 +45,7 @@ Select the options below and build your card.
     </div>
     <div class="col">
       <h4>Options:</h4>
-      <div class="row">
+      <div class="row options">
         <div class="col">
           <ul>
             <li>
@@ -100,7 +100,7 @@ Select the options below and build your card.
     <img src="static/images/loader.svg" class="loader" />
     <div class="value">  
     </div>
-    <button onclick='copyText("profileCardUrl");'>Copy</button>
+    <button type="button" onclick='copyText("profileCardUrl");'>Copy</button>
     <span class="copy"></span>
   </div>
 
@@ -109,7 +109,7 @@ Select the options below and build your card.
     <img src="static/images/loader.svg" class="loader" />
     <div class="value">
     </div>
-    <button onclick='copyText("profileCardMarkdown");'>Copy</button>
+    <button type="button" onclick='copyText("profileCardMarkdown");'>Copy</button>
     <span class="copy"></span>
   </div>
 
@@ -118,11 +118,8 @@ Select the options below and build your card.
     <img src="static/images/loader.svg" class="loader" />
     <div class="value">
     </div>
-    <button onclick='copyText("profileCardJSON");'>Copy</button>
+    <button type="button" onclick='copyText("profileCardJSON");'>Copy</button>
     <span class="copy"></span>
   </div>
 
 </div>
-
-
-
