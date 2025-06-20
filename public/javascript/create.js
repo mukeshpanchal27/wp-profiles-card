@@ -12,19 +12,21 @@
         formEl.addEventListener('submit', function(event) {
             event.preventDefault();
             const formData = new FormData(formEl);
-            const username    = formData.get('username');
-            const headerColor = formData.get('headerColor').replace("#", "");
-            const subHeaderColor = formData.get('subHeaderColor').replace("#", "");
-            const nameColor = formData.get('nameColor').replace("#", "");
+            let username          = formData.get('username');
+            const headerColor     = formData.get('headerColor').replace("#", "");
+            const subHeaderColor  = formData.get('subHeaderColor').replace("#", "");
+            const nameColor       = formData.get('nameColor').replace("#", "");
             const badgeLabelColor = formData.get('badgeLabelColor').replace("#", "");
             const foregroundColor = formData.get('foregroundColor').replace("#", "");
-            const badges = formData.get('badges');
-            const header = formData.get('header');
-            const refresh = formData.get('refresh');
-            const linkProfile = formData.get('linkProfile');
-            const displayAvatar = formData.get('displayAvatar');
+            const badges          = formData.get('badges');
+            const header          = formData.get('header');
+            const refresh         = formData.get('refresh');
+            const linkProfile     = formData.get('linkProfile');
+            const displayAvatar   = formData.get('displayAvatar');
 
             if (username !== "") {
+
+                username = username.trim().toLowerCase();
               
                 document.getElementById("result").style.display = "block";
                 document.getElementsByClassName("scroll-down")[0].style.display = "block";

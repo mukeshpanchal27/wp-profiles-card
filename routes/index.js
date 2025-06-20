@@ -36,6 +36,7 @@ router.get('/card', async (req, res, next) => {
   if (!username) {
     res.render('user-not-found', { title: 'User Not Found', userName: username, appURL: appURL, error: "User not found" });
   }
+  username = username.trim().toLowerCase();
   let displayBadges   = (undefined === req.query.badges) ? 'true' : req.query.badges;
   let displayHeader   = (undefined === req.query.header) ? 'true' : req.query.header;
   let refresh         = (undefined === req.query.refresh) ? 'false' : req.query.refresh;
