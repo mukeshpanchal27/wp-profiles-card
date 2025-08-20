@@ -16,6 +16,34 @@ const axios = require('axios');
 const avatarPath    = "../static/avatar/";
 const directoryPath = path.join(__dirname, '../'.concat(avatarPath));
 
+const MEASUREMENT_ID = process.env.GA_API;
+const API_SECRET = process.env.GA_API_SECRET;
+
+
+
+async function trackEvent(clientId, eventName, eventParams = {}) {
+  try {
+    const payload = {
+      client_id: clientId || "backend", // unique ID for the user/session
+      events: [
+        {
+          name: eventName,
+          params: eventParams,
+        },
+      ],
+    };
+
+    await axios.post(
+      `https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${API_SECRET}`,
+      payload
+    );
+
+    console.log("Event sent:", eventName);
+  } catch (err) {
+    console.error("Error sending event:", err.response?.data || err.message);
+  }
+}
+
 /**
  * Generate card
  * Params: {
@@ -129,6 +157,14 @@ router.get('/json', cors(), async (req, res, next) => {
     }
 
     fs.writeFileSync(avatarPath + username + '/card.json', JSON.stringify(userData));
+
+    // Track the request
+    await trackEvent(
+      req.ip, 
+      "api_request", 
+      { endpoint: "/json", method: "GET" }
+    );
+
     res.end(JSON.stringify(userData));
   } catch (err) {
     res.status(404).json({ error: 'Error checking profile data', details: err.message });
