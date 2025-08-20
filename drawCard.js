@@ -98,6 +98,7 @@ svg .card-box {
 .badge-themes-reviewer circle {
 	fill: rgba(78, 50, 136, 0.25);
 }
+
 .badge-themes circle,
 .badge-themes-reviewer circle {
 	stroke: rgb(78, 50, 136);
@@ -107,7 +108,6 @@ svg .card-box {
 .badge-themes-reviewer svg path {
 	fill: rgb(78, 50, 136);
 }
-
 
 .badge-sustainability-team circle,
 .badge-sustainability-contributor circle {
@@ -225,6 +225,15 @@ svg .card-box {
 .badge-wordpress-tv svg path,
 .badge-wordpress-tv-contributor svg path {
 	fill: rgb(115, 173, 48);
+}
+
+.badge-playground-contributor circle {
+	fill: white;
+    stroke: #3858E9;
+	stroke-width: 3px;
+}
+.badge-playground-contributor svg path {
+	fill: #3858E9;
 }
 
 .badge-organizer circle {

@@ -2,6 +2,9 @@
 
 ### Changelog
 
+**1.0.7** (8/20/2025)
+- FIX Added missing Playground Contributor badge
+
 **1.0.6** (6/18/2025)
 
 - [NEW Profile Creator Wizard](https://github.com/donini/wp-profiles-card/issues/19)
