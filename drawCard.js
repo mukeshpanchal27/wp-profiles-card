@@ -571,7 +571,7 @@ async function renderBadgesSVG(badges, displayBadges) {
     let itemCount       = 0;
 
     badges.forEach(element => {
-        let elementPostionX = (itemCount % 2 == 0) ? 0 : 210;
+        let elementPostionX = (itemCount % 2 == 0) ? 0 : 250;
         var iconClass = element.class;
         var badgeName = element.name;
         badgeClass = iconClass.substring(iconClass.lastIndexOf("badge"), iconClass.lastIndexOf(" ")).replace(' ', '-');
