@@ -162,9 +162,9 @@ router.get('/json', cors(), async (req, res, next) => {
     await trackEvent(
       req.ip, 
       "api_request", 
-      { endpoint: "/json", method: "GET" }
+      { endpoint: "/json", method: req.method, url: req.originalUrl || 'unknown', url: req._parsedUrl.host || 'unknown', url: req._parsedUrl.hostname || 'unknown' }
     );
-
+    console.log(req.method, req._parsedUrl.host, req._parsedUrl.hostname);
     res.end(JSON.stringify(userData));
   } catch (err) {
     res.status(404).json({ error: 'Error checking profile data', details: err.message });
