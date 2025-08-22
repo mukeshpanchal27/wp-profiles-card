@@ -19,8 +19,6 @@ const directoryPath = path.join(__dirname, '../'.concat(avatarPath));
 const MEASUREMENT_ID = process.env.GA_API;
 const API_SECRET = process.env.GA_API_SECRET;
 
-
-
 async function trackEvent(clientId, eventName, eventParams = {}) {
   try {
     const payload = {
@@ -162,7 +160,7 @@ router.get('/json', cors(), async (req, res, next) => {
     await trackEvent(
       req.ip, 
       "api_request", 
-      { endpoint: "/json", method: req.method, url: req.originalUrl || 'unknown', url: req._parsedUrl.host || 'unknown', url: req._parsedUrl.hostname || 'unknown' }
+      { endpoint: "/json", method: req.method, url: req.originalUrl || 'unknown', host: req._parsedUrl.host || 'unknown', hostname: req._parsedUrl.hostname || 'unknown' }
     );
     console.log(req.method, req._parsedUrl.host, req._parsedUrl.hostname);
     res.end(JSON.stringify(userData));
