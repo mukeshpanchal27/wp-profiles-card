@@ -5,6 +5,9 @@ const axios   = require('axios');
 const fs      = require('fs');
 const path    = require('path');
 
+const MEASUREMENT_ID = process.env.GA_API;
+const API_SECRET = process.env.GA_API_SECRET;
+
 /**
  * Class to process WordPress user profiles and grab relevant data.
  */
@@ -27,6 +30,35 @@ class Process {
    */
   async getData() {
     return axios.get(Process.URL.concat(this.username));
+  }
+
+  /**
+   * 
+   * @param {GA Session name} clientId 
+   * @param {GA Event name} eventName 
+   * @param {GA Event parameters} eventParams 
+   */
+  static async trackEvent(clientId, eventName, eventParams = {}) {
+    try {
+      const payload = {
+        client_id: clientId || "backend", // unique ID for the user/session
+        events: [
+          {
+            name: eventName,
+            params: eventParams,
+          },
+        ],
+      };
+
+      await axios.post(
+        `https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${API_SECRET}`,
+        payload
+      );
+
+      console.log("Event sent:", eventName);
+    } catch (err) {
+      console.error("Error sending event:", err.response?.data || err.message);
+    }
   }
 
   /**

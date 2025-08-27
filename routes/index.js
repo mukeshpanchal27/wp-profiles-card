@@ -16,32 +16,6 @@ const axios = require('axios');
 const avatarPath    = "../static/avatar/";
 const directoryPath = path.join(__dirname, '../'.concat(avatarPath));
 
-const MEASUREMENT_ID = process.env.GA_API;
-const API_SECRET = process.env.GA_API_SECRET;
-
-async function trackEvent(clientId, eventName, eventParams = {}) {
-  try {
-    const payload = {
-      client_id: clientId || "backend", // unique ID for the user/session
-      events: [
-        {
-          name: eventName,
-          params: eventParams,
-        },
-      ],
-    };
-
-    await axios.post(
-      `https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${API_SECRET}`,
-      payload
-    );
-
-    console.log("Event sent:", eventName);
-  } catch (err) {
-    console.error("Error sending event:", err.response?.data || err.message);
-  }
-}
-
 /**
  * Generate card
  * Params: {
@@ -110,6 +84,13 @@ router.get('/card', async (req, res, next) => {
 
         let htmlResult = await draw.renderCard(username, name, initials, membersince, base64Image, badges, dynHeight, displayHeader, headerColor, nameColor, subHeaderColor, badgeLabelColor, foreground, linkProfile, displayAvatar);
 
+        // Track the request
+        await Process.trackEvent(
+          username, 
+          "card_request", 
+          { endpoint: "/card", clientIp: req.ip, method: req.method, url: req.originalUrl || 'unknown', host: req._parsedUrl.host || 'unknown', hostname: req._parsedUrl.hostname || 'unknown' }
+        );
+
         fs.writeFileSync(avatarPath + username + '/card.svg', htmlResult);
         console.log('✅ SVG created with embedded image.');
       }
@@ -157,12 +138,11 @@ router.get('/json', cors(), async (req, res, next) => {
     fs.writeFileSync(avatarPath + username + '/card.json', JSON.stringify(userData));
 
     // Track the request
-    await trackEvent(
+    await Process.trackEvent(
       req.ip, 
       "api_request", 
       { endpoint: "/json", method: req.method, url: req.originalUrl || 'unknown', host: req._parsedUrl.host || 'unknown', hostname: req._parsedUrl.hostname || 'unknown' }
     );
-    console.log(req.method, req._parsedUrl.host, req._parsedUrl.hostname);
     res.end(JSON.stringify(userData));
   } catch (err) {
     res.status(404).json({ error: 'Error checking profile data', details: err.message });
