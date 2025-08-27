@@ -2,8 +2,11 @@
 
 ### Changelog
 
+**1.0.8** (8/27/2025)
+- [FIX Added missing Core AI Contributor and Core AI Team badges](https://github.com/donini/wp-profiles-card/issues/23)
+
 **1.0.7** (8/20/2025)
-- FIX Added missing Playground Contributor badge
+- [FIX Added missing Playground Contributor badge](https://github.com/donini/wp-profiles-card/issues/21)
 
 **1.0.6** (6/18/2025)
 
