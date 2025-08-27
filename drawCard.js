@@ -76,6 +76,20 @@ svg .card-box {
 	fill: rgb(199, 199, 199);
 }
 
+.badge-core-ai-team circle,
+.badge-core-ai-contributor circle {
+    fill: white;
+	stroke: rgb(122, 0, 223);
+	stroke-width: 3px;
+}
+.badge-core-ai-team circle {
+	fill: rgba(122, 0, 223, 0.25);
+}
+.badge-core-ai-team svg path,
+.badge-core-ai-contributor svg path {
+	fill: rgb(122, 0, 223)
+}
+
 .badge-media-corps-contributor circle {
 	fill: white;
 }
