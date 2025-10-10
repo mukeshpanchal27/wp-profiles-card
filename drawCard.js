@@ -588,6 +588,10 @@ async function renderBadgesSVG(badges, displayBadges) {
         let elementPostionX = (itemCount % 2 == 0) ? 0 : 250;
         var iconClass = element.class;
         var badgeName = element.name;
+
+        // Remove "has-overlay" from the class name if it exists.
+        iconClass = iconClass.replace('has-overlay', '').trim();
+
         badgeClass = iconClass.substring(iconClass.lastIndexOf("badge"), iconClass.lastIndexOf(" ")).replace(' ', '-');
         dashClass = iconClass.substring(iconClass.lastIndexOf("dashicons"), iconClass.length).replace(' ', '-');
         const iconPath = `./public/images/svg/${dashClass}.svg`;
